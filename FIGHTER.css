@@ -8,6 +8,8 @@
   padding: 0px;
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
+  background-color: #242424;
+  color: white;
 }
 
 body {
@@ -23,7 +25,24 @@ body {
   display: flex;
   flex-direction: column;
 }
+.players > .player > .statistics {
+  font-size: 20px;
+}
 .players > .player > .buttons {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+}
+.players > .player > .buttons > button {
+  border-radius: 1px;
+  background-color: #d1d1d1;
+  font-size: 14px;
+  color: black;
+}
+.players > .player > .buttons > .superbutton {
+  color: dimgray;
+}
+
+.dialogue {
+  width: 100%;
+  font-size: 28px;
 }
