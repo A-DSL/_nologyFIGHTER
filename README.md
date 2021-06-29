@@ -7,7 +7,7 @@ Attacks also charge Energy. Energy gain is 10 per attack (bonus goal: ties produ
 
 Once your Energy reaches a sufficient amount, you can unleash one of three supers; your opponent can only beat this super with 1 attack, with the other two causing a loss. Supers cost 30 Energy and are:
 
--Ultra Beam: Only loses to Baseball Bat/Homerun. 
+-Hyper Beam: Only loses to Baseball Bat/Homerun. 
 -Explosion: Only loses to Beam/Ultra Beam. 
 -Homerun: Only loses to Blast/Explosion.
 
