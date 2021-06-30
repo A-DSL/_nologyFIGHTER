@@ -1,3 +1,41 @@
+console.log("Testing!");
 //JS will include:
 //-A class that will be used for the two fighters. This consists of a HP value, Energy value, and three functions for altering these values (HP loss, Energy gain, Energy loss from Super). 
-//Event listeners for all of P1's buttons, for performing each attack and determining the random attack P2 will use. This will change image indexing and call the fighter class functions based on if statements. P2's buttons are purely cosmetic and should only change to highlight when their Supers are available.
+//Event listeners for all of P1's buttons, for performing each attack and determining the random attack P2 will use. This will change image indexing and call the fighter class functions based on if statements. It will also affect various toggles based on Energy count, which grant access to Supers.
+//P2's buttons are purely cosmetic and should only change to highlight when their Supers are available.
+
+//Accessor variables for HTML code.
+const playerOneHPBar = document.querySelector(".playerone__HP")
+const playerTwoHPBar = document.querySelector(".playertwo__HP")
+
+//Fighter Class. Functions for losing HP, gaining Energy, and losing Energy.
+class Fighter {
+    constructor(HPBar){
+        this.hitpoints = 3;
+        this.energy = 0;
+        //Class can modify HP Bar HTML.
+        this.HPBar = HPBar;    
+    }
+
+    deductHP() {
+        this.hitpoints -= 1;
+        if (this.hitpoints == 2){
+            //first hit
+            this.HPBar.innerHTML = `<img src="HPoof.png">`
+        }
+        else if (this.hitpoints == 1){
+            //second hit
+            this.HPBar.innerHTML = `<img src="HPdanger.png">`
+        }
+        else if (this.hitpoints == 0){
+            //KO!
+            this.HPBar.innerHTML = `<img src="HPzero.png">`
+        }
+    }
+}
+
+//Fighters
+const playerOne = new Fighter(playerOneHPBar);
+const playerTwo = new Fighter(playerTwoHPBar);
+playerOne.deductHP();
+console.log(playerOne);

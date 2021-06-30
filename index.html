@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FIGHTER</title>
-    <link rel="stylesheet" href="FIGHTER.css">
+    <link rel="stylesheet" href="fighter.css">
 </head>
 <body>
 <!--Create two sections; one for P1 and one for P2. These will be flex-boxed to occupy 50% of the screen, and all dimensions within them will be relative to the screen size. Hopefully this works on phone!
@@ -20,7 +20,7 @@ Each section will consist of:
     <!--P1-->
     <section class="player">
         <div class="statistics playerone__statistics">
-            <img class="playerone__HP">
+            <p class="playerone__HP"><img src="HPfull.png"></p>
             <p class="playerone__energy">Energy: </p>
         </div>
         <div class="buttons playerone__buttons">
@@ -37,7 +37,7 @@ Each section will consist of:
     <!--P2-->
     <section class="player">
         <div class="statistics playertwo__statistics">
-            <img class="playertwo__HP">
+            <p class="playertwo__HP"><img src="HPfull.png"></p>
             <p class="playertwo__energy">Energy: </p>
         </div>
         <div class="buttons playertwo__buttons">
@@ -53,9 +53,9 @@ Each section will consist of:
 </main>
 
 <!--Record of battle-->
-<main class="dialogue"></main>
+<main class="dialogue">placeholder</main>
 
 
-<style src="./FIGHTER.js"></style>
+<style src="./fighter.js"></style>
 </body>
 </html>

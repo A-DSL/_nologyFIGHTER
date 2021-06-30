@@ -31,6 +31,8 @@ body {
 .players > .player > .buttons {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 3px;
+  padding: 2px;
 }
 .players > .player > .buttons > button {
   border-radius: 1px;
