@@ -1,12 +1,20 @@
-console.log("Testing!");
 //JS will include:
 //-A class that will be used for the two fighters. This consists of a HP value, Energy value, and three functions for altering these values (HP loss, Energy gain, Energy loss from Super). 
 //Event listeners for all of P1's buttons, for performing each attack and determining the random attack P2 will use. This will change image indexing and call the fighter class functions based on if statements. It will also affect various toggles based on Energy count, which grant access to Supers.
 //P2's buttons are purely cosmetic and should only change to highlight when their Supers are available.
 
 //Accessor variables for HTML code.
+//  HP Bars
 const playerOneHPBar = document.querySelector(".playerone__HP")
 const playerTwoHPBar = document.querySelector(".playertwo__HP")
+//  Normals
+const beam = document.getElementsByClassName("regularbutton")[0];
+const blast = document.getElementsByClassName("regularbutton")[1];
+const baseball = document.getElementsByClassName("regularbutton")[2];
+//  Supers
+const hyperbeam = document.getElementsByClassName("superbutton")[0];
+const explosion = document.getElementsByClassName("superbutton")[1];
+const homerun = document.getElementsByClassName("superbutton")[2];
 
 //Fighter Class. Functions for losing HP, gaining Energy, and losing Energy.
 class Fighter {
@@ -37,5 +45,7 @@ class Fighter {
 //Fighters
 const playerOne = new Fighter(playerOneHPBar);
 const playerTwo = new Fighter(playerTwoHPBar);
-playerOne.deductHP();
-console.log(playerOne);
+
+//test to check if function works
+//playerOne.deductHP();
+//console.log(playerOne);

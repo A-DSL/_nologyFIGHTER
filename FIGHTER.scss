@@ -30,7 +30,13 @@ body{
 
 
         > .statistics{
+            width:100%;
             font-size:$energyfontsize;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+            padding:2px;
         }
 
 
@@ -52,6 +58,14 @@ body{
             > .superbutton{
                 color:rgb(105, 105, 105);
             }
+        }
+
+
+        > .images{
+            width:100%;
+            display:flex;
+            justify-content:center;
+            align-items:center;
         }
     }
 }
