@@ -101,16 +101,22 @@ var playerTwo = new Fighter(playerTwoHPBar); //test to check if function works
 
 var playerTwoAttacks = function playerTwoAttacks(result) {
   if (result == 0) {
+    playerTwoSprite.innerHTML = "<img src=\"beam.png\">";
     return "Beam";
   } else if (result == 1) {
+    playerTwoSprite.innerHTML = "<img src=\"blast.png\">";
     return "Blast";
   } else if (result == 2) {
+    playerTwoSprite.innerHTML = "<img src=\"baseballbat.png\">";
     return "Baseball Bat";
   } else if (result == 3) {
+    playerTwoSprite.innerHTML = "<img src=\"hyperbeam.png\">";
     return "Hyper Beam";
   } else if (result == 4) {
+    playerTwoSprite.innerHTML = "<img src=\"explosion.png\">";
     return "Explosion";
   } else if (result == 5) {
+    playerTwoSprite.innerHTML = "<img src=\"homerun.png\">";
     return "Homerun";
   }
 };
@@ -132,7 +138,9 @@ var playerTwoAttackChoice = function playerTwoAttackChoice(fighter) {
 
     return _diceroll3;
   }
-}; //Event listeners to use P1's attacks and advance game state
+}; //test to check if function works
+//console.log(playerTwoAttacks(playerTwoAttackChoice(playerTwo)));
+//Event listeners to use P1's attacks and advance game state
 
 
 beam.addEventListener("click", function () {
@@ -141,7 +149,7 @@ beam.addEventListener("click", function () {
     //change sprites
     //increaseEnergy()/useSuper() for each side to monitor Energy
     //add classes and toggle super availability if energy reaches certain amount
-    //change dialogue and use deductHP() based on outcome, + change victory code to true if one side loses all hp  
+    //change dialogue and use deductHP() based on outcome, + change victory code to true and change sprites if one side loses all hp  
   }
 });
 blast.addEventListener("click", function () {
