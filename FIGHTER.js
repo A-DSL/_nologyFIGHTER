@@ -27,6 +27,10 @@ const baseball = document.getElementsByClassName("regularbutton")[2];
 const hyperbeam = document.getElementsByClassName("superbutton")[0];
 const explosion = document.getElementsByClassName("superbutton")[1];
 const homerun = document.getElementsByClassName("superbutton")[2];
+//  Dialogue
+const dialogue = document.querySelector(".dialogue");
+const dialogueHeadline = document.querySelector(".dialogue__headline");
+const dialogueFlavourText = document.querySelector(".dialogue__flavourtext");
 
 //Fighter Class. Functions for losing HP, gaining Energy, and losing Energy.
 class Fighter {
@@ -52,6 +56,19 @@ class Fighter {
             this.HPBar.innerHTML = `<img src="HPzero.png">`
         }
     }
+
+    increaseEnergy() {
+        this.energy += 10;
+    }
+    useHyperBeam() {
+        this.energy -= 30;
+    }
+    useExplosion() {
+        this.energy -= 40;
+    }
+    useHomerun() {
+        this.energy -= 50;
+    }
 }
 
 //Fighters
@@ -62,29 +79,78 @@ const playerTwo = new Fighter(playerTwoHPBar);
 //playerOne.deductHP();
 //console.log(playerOne);
 
+//Functions that randomly determine P2's attack. playerTwo will always be passed as the parameter.
+const playerTwoAttacks = (result) => {
+    if (result == 0){
+        return "Beam";
+    }
+    else if (result == 1){
+        return "Blast";
+    }
+    else if (result == 2){
+        return "Baseball Bat";
+    }
+    else if (result == 3){
+        return "Hyper Beam";
+    }
+    else if (result == 4){
+        return "Explosion";
+    }
+    else if (result == 5){
+        return "Homerun";
+    }
+}
+const playerTwoAttackChoice = (fighter) => {
+    if (fighter.energy >= 50){
+        let diceroll = Math.floor(Math.random() * 6);
+        return diceroll;
+    } else if (fighter.energy >= 40){
+        let diceroll = Math.floor(Math.random() * 5);
+        return diceroll;
+    } else if (fighter.energy >= 30){
+        let diceroll = Math.floor(Math.random() * 4);
+        return diceroll;
+    } else{
+        let diceroll = Math.floor(Math.random() * 3);
+        return diceroll;
+    }
+}
 
-//Event listeners to use attacks and advance game state
+//Event listeners to use P1's attacks and advance game state
 beam.addEventListener("click", () => {
-
+    if (p1Victory == false && p2Victory == false){
+        //determine p2's attack through RNG functions
+        //(play sound effect, optional)
+        //change sprites
+        //add/deduct energy for each side
+        //change dialogue and use deductHP() based on outcome, + change victory code to true if one side loses all hp  
+    }
 })
 blast.addEventListener("click", () => {
-    
+    if (p1Victory == false && p2Victory == false){
+            
+    }    
 })
 baseball.addEventListener("click", () => {
-    
+    if (p1Victory == false && p2Victory == false){
+            
+    }    
 })
 hyperbeam.addEventListener("click", () => {
-    if (p1CanHyperBeam == true){
+    if (p1Victory == false && p2Victory == false
+    && p1CanHyperBeam == true){
         
     }
 })
 explosion.addEventListener("click", () => {
-    if (p1CanExplode == true){
+    if (p1Victory == false && p2Victory == false
+    && p1CanExplode == true){
         
     }  
 })
 homerun.addEventListener("click", () => {
-    if (p1CanHomerun == true){
+    if (p1Victory == false && p2Victory == false
+    && p1CanHomerun == true){
         
     }  
 })
