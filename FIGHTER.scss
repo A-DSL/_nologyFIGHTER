@@ -47,18 +47,29 @@ body{
             grid-template-columns:1fr 1fr 1fr;
             grid-gap:3px;
             padding:2px;
-            > button{
+            span{
+                display:flex;
+                justify-content:center;
+                align-items:center;
+            }
+            button{
+                width:100%;
+                height:100%;
                 border-radius:1px;
                 background-color:rgb(209, 209, 209);
     
                 font-size:$buttonfontsize;
                 color:black;
             }
-            > .regularbutton{
+            .regularbutton{
 
             }
-            > .superbutton{
+            /*Super buttons swap between these two classes based on availability.*/
+            .superbutton{
                 color:rgb(105, 105, 105);
+            }
+            .highlightedsuperbutton{
+                color:rgb(35, 0, 235);
             }
         }
 

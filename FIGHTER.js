@@ -9,16 +9,16 @@ let p2Victory = false;
 
 //Accessor variables for HTML code.
 //  HP Bars
-const playerOneHPBar = document.querySelector(".playerone__HP")
-const playerTwoHPBar = document.querySelector(".playertwo__HP")
+const playerOneHPBar = document.querySelector(".playerone__HP");
+const playerTwoHPBar = document.querySelector(".playertwo__HP");
 // Player Sprites
-const playerOneSprite = document.querySelector(".playerone__image")
-const playerTwoSprite = document.querySelector(".playertwo__image")
-//  Normals
+const playerOneSprite = document.querySelector(".playerone__image");
+const playerTwoSprite = document.querySelector(".playertwo__image");
+//  P1 Normals
 const beam = document.getElementsByClassName("regularbutton")[0];
 const blast = document.getElementsByClassName("regularbutton")[1];
 const baseball = document.getElementsByClassName("regularbutton")[2];
-//  Supers
+//  P1 Supers
 const hyperbeam = document.getElementsByClassName("superbutton")[0];
 const explosion = document.getElementsByClassName("superbutton")[1];
 const homerun = document.getElementsByClassName("superbutton")[2];
@@ -29,7 +29,13 @@ const dialogueFlavourText = document.querySelector(".dialogue__flavourtext");
 
 //Fighter Class. Functions for losing HP, gaining Energy, and losing Energy.
 class Fighter {
-    constructor(HPBar){
+    constructor(name, HPBar){
+        //sneaky variable meant to access player-specific Super span tags in HTML
+        this.name = name;
+        this.hyperbeambutton = document.querySelector(`.${name}hyperbeam`);
+        this.explosionbutton = document.querySelector(`.${name}explosion`);
+        this.homerunbutton = document.querySelector(`.${name}homerun`);
+
         this.hitpoints = 3;
         this.energy = 0;
         //Class can modify HP Bar HTML.
@@ -61,12 +67,15 @@ class Fighter {
         //enable supers and re-assign classes to buttons.
         if (this.energy >= 30){
             this.canHyperBeam = true;
+            this.hyperbeambutton.innerHTML = `<button class="highlightedsuperbutton">Hyper Beam</button>`;
         }
         if (this.energy >= 40){
             this.canExplode = true;
+            this.explosionbutton.innerHTML = `<button class="highlightedsuperbutton">Explosion</button>`;
         }
         if (this.energy >= 50){
             this.canHomerun = true;
+            this.homerunbutton.innerHTML = `<button class="highlightedsuperbutton">Homerun</button>`;
         }
     }
     useHyperBeam() {
@@ -74,12 +83,15 @@ class Fighter {
         //disable supers and re-assign classes to buttons.
         if (this.energy < 30){
             this.canHyperBeam = false;
+            this.hyperbeambutton.innerHTML = `<button class="superbutton">Hyper Beam</button>`;
         }
         if (this.energy < 40){
             this.canExplode = false;
+            this.explosionbutton.innerHTML = `<button class="superbutton">Explosion</button>`;
         }
         if (this.energy < 50){
             this.canHomerun = false;
+            this.homerunbutton.innerHTML = `<button class="superbutton">Homerun</button>`;
         }
     }
     useExplosion() {
@@ -87,12 +99,15 @@ class Fighter {
         //disable supers and re-assign classes to buttons.
         if (this.energy < 30){
             this.canHyperBeam = false;
+            this.hyperbeambutton.innerHTML = `<button class="superbutton">Hyper Beam</button>`;
         }
         if (this.energy < 40){
             this.canExplode = false;
+            this.explosionbutton.innerHTML = `<button class="superbutton">Explosion</button>`;
         }
         if (this.energy < 50){
             this.canHomerun = false;
+            this.homerunbutton.innerHTML = `<button class="superbutton">Homerun</button>`;
         }
     }
     useHomerun() {
@@ -100,19 +115,22 @@ class Fighter {
         //disable supers and re-assign classes to buttons.
         if (this.energy < 30){
             this.canHyperBeam = false;
+            this.hyperbeambutton.innerHTML = `<button class="superbutton">Hyper Beam</button>`;
         }
         if (this.energy < 40){
             this.canExplode = false;
+            this.explosionbutton.innerHTML = `<button class="superbutton">Explosion</button>`;
         }
         if (this.energy < 50){
             this.canHomerun = false;
+            this.homerunbutton.innerHTML = `<button class="superbutton">Homerun</button>`;
         }
     }
 }
 
 //Fighters
-const playerOne = new Fighter(playerOneHPBar);
-const playerTwo = new Fighter(playerTwoHPBar);
+const playerOne = new Fighter("p1", playerOneHPBar);
+const playerTwo = new Fighter("p2", playerTwoHPBar);
 //test to check if function works
 //playerOne.deductHP();
 //console.log(playerOne);

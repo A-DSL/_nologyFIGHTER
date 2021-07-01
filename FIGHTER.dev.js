@@ -19,11 +19,11 @@ var playerOneHPBar = document.querySelector(".playerone__HP");
 var playerTwoHPBar = document.querySelector(".playertwo__HP"); // Player Sprites
 
 var playerOneSprite = document.querySelector(".playerone__image");
-var playerTwoSprite = document.querySelector(".playertwo__image"); //  Normals
+var playerTwoSprite = document.querySelector(".playertwo__image"); //  P1 Normals
 
 var beam = document.getElementsByClassName("regularbutton")[0];
 var blast = document.getElementsByClassName("regularbutton")[1];
-var baseball = document.getElementsByClassName("regularbutton")[2]; //  Supers
+var baseball = document.getElementsByClassName("regularbutton")[2]; //  P1 Supers
 
 var hyperbeam = document.getElementsByClassName("superbutton")[0];
 var explosion = document.getElementsByClassName("superbutton")[1];
@@ -36,9 +36,14 @@ var dialogueFlavourText = document.querySelector(".dialogue__flavourtext"); //Fi
 var Fighter =
 /*#__PURE__*/
 function () {
-  function Fighter(HPBar) {
+  function Fighter(name, HPBar) {
     _classCallCheck(this, Fighter);
 
+    //sneaky variable meant to access player-specific Super span tags in HTML
+    this.name = name;
+    this.hyperbeambutton = document.querySelector(".".concat(name, "hyperbeam"));
+    this.explosionbutton = document.querySelector(".".concat(name, "explosion"));
+    this.homerunbutton = document.querySelector(".".concat(name, "homerun"));
     this.hitpoints = 3;
     this.energy = 0; //Class can modify HP Bar HTML.
 
@@ -72,14 +77,17 @@ function () {
 
       if (this.energy >= 30) {
         this.canHyperBeam = true;
+        this.hyperbeambutton.innerHTML = "<button class=\"highlightedsuperbutton\">Hyper Beam</button>";
       }
 
       if (this.energy >= 40) {
         this.canExplode = true;
+        this.explosionbutton.innerHTML = "<button class=\"highlightedsuperbutton\">Explosion</button>";
       }
 
       if (this.energy >= 50) {
         this.canHomerun = true;
+        this.homerunbutton.innerHTML = "<button class=\"highlightedsuperbutton\">Homerun</button>";
       }
     }
   }, {
@@ -89,14 +97,17 @@ function () {
 
       if (this.energy < 30) {
         this.canHyperBeam = false;
+        this.hyperbeambutton.innerHTML = "<button class=\"superbutton\">Hyper Beam</button>";
       }
 
       if (this.energy < 40) {
         this.canExplode = false;
+        this.explosionbutton.innerHTML = "<button class=\"superbutton\">Explosion</button>";
       }
 
       if (this.energy < 50) {
         this.canHomerun = false;
+        this.homerunbutton.innerHTML = "<button class=\"superbutton\">Homerun</button>";
       }
     }
   }, {
@@ -106,14 +117,17 @@ function () {
 
       if (this.energy < 30) {
         this.canHyperBeam = false;
+        this.hyperbeambutton.innerHTML = "<button class=\"superbutton\">Hyper Beam</button>";
       }
 
       if (this.energy < 40) {
         this.canExplode = false;
+        this.explosionbutton.innerHTML = "<button class=\"superbutton\">Explosion</button>";
       }
 
       if (this.energy < 50) {
         this.canHomerun = false;
+        this.homerunbutton.innerHTML = "<button class=\"superbutton\">Homerun</button>";
       }
     }
   }, {
@@ -123,14 +137,17 @@ function () {
 
       if (this.energy < 30) {
         this.canHyperBeam = false;
+        this.hyperbeambutton.innerHTML = "<button class=\"superbutton\">Hyper Beam</button>";
       }
 
       if (this.energy < 40) {
         this.canExplode = false;
+        this.explosionbutton.innerHTML = "<button class=\"superbutton\">Explosion</button>";
       }
 
       if (this.energy < 50) {
         this.canHomerun = false;
+        this.homerunbutton.innerHTML = "<button class=\"superbutton\">Homerun</button>";
       }
     }
   }]);
@@ -139,8 +156,8 @@ function () {
 }(); //Fighters
 
 
-var playerOne = new Fighter(playerOneHPBar);
-var playerTwo = new Fighter(playerTwoHPBar); //test to check if function works
+var playerOne = new Fighter("p1", playerOneHPBar);
+var playerTwo = new Fighter("p2", playerTwoHPBar); //test to check if function works
 //playerOne.deductHP();
 //console.log(playerOne);
 //Functions that randomly determine P2's attack. playerTwo will always be passed as the parameter.
