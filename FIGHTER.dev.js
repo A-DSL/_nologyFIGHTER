@@ -10,13 +10,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 //-A class that will be used for the two fighters. This consists of a HP value, Energy value, and three functions for altering these values (HP loss, Energy gain, Energy loss from Super). 
 //Event listeners for all of P1's buttons, for performing each attack and determining the random attack P2 will use. This will change image indexing and call the fighter class functions based on if statements. It will also affect various toggles based on Energy count, which grant access to Supers.
 //P2's buttons are purely cosmetic and should only change to highlight when their Supers are available.
-//Values to toggle for when supers are available or when victory/loss occurs.
-var p1CanHyperBeam = false;
-var p1CanExplode = false;
-var p1CanHomerun = false;
-var p2CanHyperBeam = false;
-var p2CanExplode = false;
-var p2CanHomerun = false;
+//Values to toggle for when victory/loss occurs.
 var p1Victory = false;
 var p2Victory = false; //Accessor variables for HTML code.
 //  HP Bars
@@ -48,7 +42,11 @@ function () {
     this.hitpoints = 3;
     this.energy = 0; //Class can modify HP Bar HTML.
 
-    this.HPBar = HPBar;
+    this.HPBar = HPBar; //Toggles for supers.
+
+    this.canHyperBeam = false;
+    this.canExplode = false;
+    this.canHomerun = false;
   }
 
   _createClass(Fighter, [{
@@ -70,22 +68,70 @@ function () {
   }, {
     key: "increaseEnergy",
     value: function increaseEnergy() {
-      this.energy += 10;
+      this.energy += 10; //enable supers and re-assign classes to buttons.
+
+      if (this.energy >= 30) {
+        this.canHyperBeam = true;
+      }
+
+      if (this.energy >= 40) {
+        this.canExplode = true;
+      }
+
+      if (this.energy >= 50) {
+        this.canHomerun = true;
+      }
     }
   }, {
     key: "useHyperBeam",
     value: function useHyperBeam() {
-      this.energy -= 30;
+      this.energy -= 30; //disable supers and re-assign classes to buttons.
+
+      if (this.energy < 30) {
+        this.canHyperBeam = false;
+      }
+
+      if (this.energy < 40) {
+        this.canExplode = false;
+      }
+
+      if (this.energy < 50) {
+        this.canHomerun = false;
+      }
     }
   }, {
     key: "useExplosion",
     value: function useExplosion() {
-      this.energy -= 40;
+      this.energy -= 40; //disable supers and re-assign classes to buttons.
+
+      if (this.energy < 30) {
+        this.canHyperBeam = false;
+      }
+
+      if (this.energy < 40) {
+        this.canExplode = false;
+      }
+
+      if (this.energy < 50) {
+        this.canHomerun = false;
+      }
     }
   }, {
     key: "useHomerun",
     value: function useHomerun() {
-      this.energy -= 50;
+      this.energy -= 50; //disable supers and re-assign classes to buttons.
+
+      if (this.energy < 30) {
+        this.canHyperBeam = false;
+      }
+
+      if (this.energy < 40) {
+        this.canExplode = false;
+      }
+
+      if (this.energy < 50) {
+        this.canHomerun = false;
+      }
     }
   }]);
 

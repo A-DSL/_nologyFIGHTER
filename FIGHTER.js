@@ -3,15 +3,7 @@
 //Event listeners for all of P1's buttons, for performing each attack and determining the random attack P2 will use. This will change image indexing and call the fighter class functions based on if statements. It will also affect various toggles based on Energy count, which grant access to Supers.
 //P2's buttons are purely cosmetic and should only change to highlight when their Supers are available.
 
-//Values to toggle for when supers are available or when victory/loss occurs.
-let p1CanHyperBeam = false;
-let p1CanExplode = false;
-let p1CanHomerun = false;
-
-let p2CanHyperBeam = false;
-let p2CanExplode = false;
-let p2CanHomerun = false;
-
+//Values to toggle for when victory/loss occurs.
 let p1Victory = false;
 let p2Victory = false;
 
@@ -41,7 +33,11 @@ class Fighter {
         this.hitpoints = 3;
         this.energy = 0;
         //Class can modify HP Bar HTML.
-        this.HPBar = HPBar;    
+        this.HPBar = HPBar;
+        //Toggles for supers.
+        this.canHyperBeam = false;
+        this.canExplode = false;
+        this.canHomerun = false;
     }
 
     deductHP() {
@@ -62,15 +58,55 @@ class Fighter {
 
     increaseEnergy() {
         this.energy += 10;
+        //enable supers and re-assign classes to buttons.
+        if (this.energy >= 30){
+            this.canHyperBeam = true;
+        }
+        if (this.energy >= 40){
+            this.canExplode = true;
+        }
+        if (this.energy >= 50){
+            this.canHomerun = true;
+        }
     }
     useHyperBeam() {
         this.energy -= 30;
+        //disable supers and re-assign classes to buttons.
+        if (this.energy < 30){
+            this.canHyperBeam = false;
+        }
+        if (this.energy < 40){
+            this.canExplode = false;
+        }
+        if (this.energy < 50){
+            this.canHomerun = false;
+        }
     }
     useExplosion() {
         this.energy -= 40;
+        //disable supers and re-assign classes to buttons.
+        if (this.energy < 30){
+            this.canHyperBeam = false;
+        }
+        if (this.energy < 40){
+            this.canExplode = false;
+        }
+        if (this.energy < 50){
+            this.canHomerun = false;
+        }
     }
     useHomerun() {
         this.energy -= 50;
+        //disable supers and re-assign classes to buttons.
+        if (this.energy < 30){
+            this.canHyperBeam = false;
+        }
+        if (this.energy < 40){
+            this.canExplode = false;
+        }
+        if (this.energy < 50){
+            this.canHomerun = false;
+        }
     }
 }
 
