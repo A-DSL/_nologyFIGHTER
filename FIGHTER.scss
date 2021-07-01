@@ -4,8 +4,8 @@
 -Flexboxing for the two sections and their subdivisions. The 6 buttons for each side will be in a grid.
 -Text size and colour formatting.*/
 $buttonfontsize:14px;
-$energyfontsize:20px;
-$dialoguefontsize:28px;
+$energyfontsize:14px;
+$dialoguefontsize:20px;
 
 *{
     margin:0px;
@@ -32,6 +32,8 @@ body{
         > .statistics{
             width:100%;
             font-size:$energyfontsize;
+            font-weight:bold;
+
             display:flex;
             flex-direction:column;
             justify-content:center;

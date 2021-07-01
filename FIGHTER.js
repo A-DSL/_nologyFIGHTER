@@ -19,6 +19,9 @@ let p2Victory = false;
 //  HP Bars
 const playerOneHPBar = document.querySelector(".playerone__HP")
 const playerTwoHPBar = document.querySelector(".playertwo__HP")
+// Player Sprites
+const playerOneSprite = document.querySelector(".playerone__image")
+const playerTwoSprite = document.querySelector(".playertwo__image")
 //  Normals
 const beam = document.getElementsByClassName("regularbutton")[0];
 const blast = document.getElementsByClassName("regularbutton")[1];
@@ -122,7 +125,8 @@ beam.addEventListener("click", () => {
         //determine p2's attack through RNG functions
         //(play sound effect, optional)
         //change sprites
-        //add/deduct energy for each side
+        //increaseEnergy()/useSuper() for each side to monitor Energy
+        //add classes and toggle super availability if energy reaches certain amount
         //change dialogue and use deductHP() based on outcome, + change victory code to true if one side loses all hp  
     }
 })
