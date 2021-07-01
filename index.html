@@ -8,12 +8,12 @@
     <link rel="stylesheet" href="fighter.css">
 </head>
 <body>
-<!--Create two sections; one for P1 and one for P2. These will be flex-boxed to occupy 50% of the screen, and all dimensions within them will be relative to the screen size. Hopefully this works on phone!
+<!--Two sections; one for P1 and one for P2. These will be flex-boxed to occupy 50% of the screen, and most/all dimensions within them will be relative to the screen size. Hopefully this works on phone!
 
-Each section will consist of:
+Each section consists of:
 -A health and energy measurement at the top.
 -Six buttons for attacking with. Top 3 are Normals, Bottom 3 are Supers.
--A division made specifically to hold the image.-->
+-A division made specifically to hold the player sprite.-->
 
 <!--Player Info-->
 <main class="players">
@@ -21,15 +21,15 @@ Each section will consist of:
     <section class="player">
         <div class="statistics playerone__statistics">
             <p class="playerone__HP"><img src="HPfull.png"></p>
-            <p class="playerone__energy">Energy: </p>
+            <p class="playerone__energy">Energy: 0</p>
         </div>
         <div class="buttons playerone__buttons">
             <span><button class="regularbutton">Beam</button></span>
             <span><button class="regularbutton">Blast</button></span>
             <span><button class="regularbutton">Baseball Bat</button></span>
-            <span class="p1hyperbeam"><button class="superbutton">Hyper Beam</button></span>
-            <span class="p1explosion"><button class="superbutton">Explosion</button></span>
-            <span class="p1homerun"><button class="superbutton">Homerun</button></span>
+            <span class="playerone__hyperbeam"><button class="superbutton">Hyper Beam</button></span>
+            <span class="playerone__explosion"><button class="superbutton">Explosion</button></span>
+            <span class="playerone__homerun"><button class="superbutton">Homerun</button></span>
         </div>
         <p class="images playerone__image"><img src="idleLeft.png"></p>
     </section>
@@ -38,15 +38,15 @@ Each section will consist of:
     <section class="player">
         <div class="statistics playertwo__statistics">
             <p class="playertwo__HP"><img src="HPfull.png"></p>
-            <p class="playertwo__energy">Energy: </p>
+            <p class="playertwo__energy">Energy: 0</p>
         </div>
         <div class="buttons playertwo__buttons">
             <span><button class="regularbutton">Beam</button></span>
             <span><button class="regularbutton">Blast</button></span>
             <span><button class="regularbutton">Baseball Bat</button></span>
-            <span class="p2hyperbeam"><button class="superbutton">Hyper Beam</button></span>
-            <span class="p2explosion"><button class="superbutton">Explosion</button></span>
-            <span class="p2homerun"><button class="superbutton">Homerun</button></span>
+            <span class="playertwo__hyperbeam"><button class="superbutton">Hyper Beam</button></span>
+            <span class="playertwo__explosion"><button class="superbutton">Explosion</button></span>
+            <span class="playertwo__homerun"><button class="superbutton">Homerun</button></span>
         </div>
         <p class="images playertwo__image"><img src="idle.png"></p>
     </section>

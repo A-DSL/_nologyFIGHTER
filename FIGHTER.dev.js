@@ -39,11 +39,12 @@ function () {
   function Fighter(name, HPBar) {
     _classCallCheck(this, Fighter);
 
-    //sneaky variable meant to access player-specific Super span tags in HTML
+    //sneaky variable meant to access player-specific Energy/Super tags in HTML
     this.name = name;
-    this.hyperbeambutton = document.querySelector(".".concat(name, "hyperbeam"));
-    this.explosionbutton = document.querySelector(".".concat(name, "explosion"));
-    this.homerunbutton = document.querySelector(".".concat(name, "homerun"));
+    this.energybar = document.querySelector(".".concat(name, "__energy"));
+    this.hyperbeambutton = document.querySelector(".".concat(name, "__hyperbeam"));
+    this.explosionbutton = document.querySelector(".".concat(name, "__explosion"));
+    this.homerunbutton = document.querySelector(".".concat(name, "__homerun"));
     this.hitpoints = 3;
     this.energy = 0; //Class can modify HP Bar HTML.
 
@@ -73,7 +74,8 @@ function () {
   }, {
     key: "increaseEnergy",
     value: function increaseEnergy() {
-      this.energy += 10; //enable supers and re-assign classes to buttons.
+      this.energy += 10;
+      this.energybar.innerHTML = "Energy: ".concat(this.energy); //enable supers and re-assign classes to buttons.
 
       if (this.energy >= 30) {
         this.canHyperBeam = true;
@@ -93,7 +95,8 @@ function () {
   }, {
     key: "useHyperBeam",
     value: function useHyperBeam() {
-      this.energy -= 30; //disable supers and re-assign classes to buttons.
+      this.energy -= 30;
+      this.energybar.innerHTML = "Energy: ".concat(this.energy); //disable supers and re-assign classes to buttons.
 
       if (this.energy < 30) {
         this.canHyperBeam = false;
@@ -113,7 +116,8 @@ function () {
   }, {
     key: "useExplosion",
     value: function useExplosion() {
-      this.energy -= 40; //disable supers and re-assign classes to buttons.
+      this.energy -= 40;
+      this.energybar.innerHTML = "Energy: ".concat(this.energy); //disable supers and re-assign classes to buttons.
 
       if (this.energy < 30) {
         this.canHyperBeam = false;
@@ -133,7 +137,8 @@ function () {
   }, {
     key: "useHomerun",
     value: function useHomerun() {
-      this.energy -= 50; //disable supers and re-assign classes to buttons.
+      this.energy -= 50;
+      this.energybar.innerHTML = "Energy: ".concat(this.energy); //disable supers and re-assign classes to buttons.
 
       if (this.energy < 30) {
         this.canHyperBeam = false;
@@ -156,8 +161,8 @@ function () {
 }(); //Fighters
 
 
-var playerOne = new Fighter("p1", playerOneHPBar);
-var playerTwo = new Fighter("p2", playerTwoHPBar); //test to check if function works
+var playerOne = new Fighter("playerone", playerOneHPBar);
+var playerTwo = new Fighter("playertwo", playerTwoHPBar); //test to check if function works
 //playerOne.deductHP();
 //console.log(playerOne);
 //Functions that randomly determine P2's attack. playerTwo will always be passed as the parameter.
@@ -241,6 +246,8 @@ baseball.addEventListener("click", function () {
   }
 });
 hyperbeam.addEventListener("click", function () {
+  console.log(playerOne.canHyperBeam);
+
   if (p1Victory == false && p2Victory == false && playerOne.canHyperBeam == true) {
     var p2attack = playerTwoAttacks(playerTwoAttackChoice(playerTwo));
     playerOneSprite.innerHTML = "<img src=\"hyperbeamLeft.png\">"; //increaseEnergy()/useSuper() for each side to monitor Energy and toggle super availability. also adds classes if energy reaches certain amount.

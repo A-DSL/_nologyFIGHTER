@@ -30,11 +30,12 @@ const dialogueFlavourText = document.querySelector(".dialogue__flavourtext");
 //Fighter Class. Functions for losing HP, gaining Energy, and losing Energy.
 class Fighter {
     constructor(name, HPBar){
-        //sneaky variable meant to access player-specific Super span tags in HTML
+        //sneaky variable meant to access player-specific Energy/Super tags in HTML
         this.name = name;
-        this.hyperbeambutton = document.querySelector(`.${name}hyperbeam`);
-        this.explosionbutton = document.querySelector(`.${name}explosion`);
-        this.homerunbutton = document.querySelector(`.${name}homerun`);
+        this.energybar = document.querySelector(`.${name}__energy`);
+        this.hyperbeambutton = document.querySelector(`.${name}__hyperbeam`);
+        this.explosionbutton = document.querySelector(`.${name}__explosion`);
+        this.homerunbutton = document.querySelector(`.${name}__homerun`);
 
         this.hitpoints = 3;
         this.energy = 0;
@@ -64,6 +65,7 @@ class Fighter {
 
     increaseEnergy() {
         this.energy += 10;
+        this.energybar.innerHTML = `Energy: ${this.energy}`;
         //enable supers and re-assign classes to buttons.
         if (this.energy >= 30){
             this.canHyperBeam = true;
@@ -80,6 +82,7 @@ class Fighter {
     }
     useHyperBeam() {
         this.energy -= 30;
+        this.energybar.innerHTML = `Energy: ${this.energy}`;
         //disable supers and re-assign classes to buttons.
         if (this.energy < 30){
             this.canHyperBeam = false;
@@ -96,6 +99,7 @@ class Fighter {
     }
     useExplosion() {
         this.energy -= 40;
+        this.energybar.innerHTML = `Energy: ${this.energy}`;
         //disable supers and re-assign classes to buttons.
         if (this.energy < 30){
             this.canHyperBeam = false;
@@ -112,6 +116,7 @@ class Fighter {
     }
     useHomerun() {
         this.energy -= 50;
+        this.energybar.innerHTML = `Energy: ${this.energy}`;
         //disable supers and re-assign classes to buttons.
         if (this.energy < 30){
             this.canHyperBeam = false;
@@ -129,8 +134,8 @@ class Fighter {
 }
 
 //Fighters
-const playerOne = new Fighter("p1", playerOneHPBar);
-const playerTwo = new Fighter("p2", playerTwoHPBar);
+const playerOne = new Fighter("playerone", playerOneHPBar);
+const playerTwo = new Fighter("playertwo", playerTwoHPBar);
 //test to check if function works
 //playerOne.deductHP();
 //console.log(playerOne);
@@ -217,12 +222,13 @@ baseball.addEventListener("click", () => {
     }    
 })
 hyperbeam.addEventListener("click", () => {
+    console.log(playerOne.canHyperBeam);
     if (p1Victory == false && p2Victory == false
     && playerOne.canHyperBeam == true){
         let p2attack = playerTwoAttacks(playerTwoAttackChoice(playerTwo));
         playerOneSprite.innerHTML = `<img src="hyperbeamLeft.png">`;    
         //increaseEnergy()/useSuper() for each side to monitor Energy and toggle super availability. also adds classes if energy reaches certain amount.
-        playerOne.useHyperBeam();    
+        playerOne.useHyperBeam();  
     }
 })
 explosion.addEventListener("click", () => {
