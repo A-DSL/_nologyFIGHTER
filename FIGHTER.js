@@ -69,15 +69,15 @@ class Fighter {
         //enable supers and re-assign classes to buttons.
         if (this.energy >= 30){
             this.canHyperBeam = true;
-            this.hyperbeambutton.innerHTML = `<button class="highlightedsuperbutton">Hyper Beam</button>`;
+            //this.hyperbeambutton.innerHTML = `<button class="highlightedsuperbutton">Hyper Beam</button>`;
         }
         if (this.energy >= 40){
             this.canExplode = true;
-            this.explosionbutton.innerHTML = `<button class="highlightedsuperbutton">Explosion</button>`;
+            //this.explosionbutton.innerHTML = `<button class="highlightedsuperbutton">Explosion</button>`;
         }
         if (this.energy >= 50){
             this.canHomerun = true;
-            this.homerunbutton.innerHTML = `<button class="highlightedsuperbutton">Homerun</button>`;
+            //this.homerunbutton.innerHTML = `<button class="highlightedsuperbutton">Homerun</button>`;
         }
     }
     useHyperBeam() {
@@ -86,15 +86,15 @@ class Fighter {
         //disable supers and re-assign classes to buttons.
         if (this.energy < 30){
             this.canHyperBeam = false;
-            this.hyperbeambutton.innerHTML = `<button class="superbutton">Hyper Beam</button>`;
+            //this.hyperbeambutton.innerHTML = `<button class="superbutton">Hyper Beam</button>`;
         }
         if (this.energy < 40){
             this.canExplode = false;
-            this.explosionbutton.innerHTML = `<button class="superbutton">Explosion</button>`;
+            //this.explosionbutton.innerHTML = `<button class="superbutton">Explosion</button>`;
         }
         if (this.energy < 50){
             this.canHomerun = false;
-            this.homerunbutton.innerHTML = `<button class="superbutton">Homerun</button>`;
+            //this.homerunbutton.innerHTML = `<button class="superbutton">Homerun</button>`;
         }
     }
     useExplosion() {
@@ -103,15 +103,15 @@ class Fighter {
         //disable supers and re-assign classes to buttons.
         if (this.energy < 30){
             this.canHyperBeam = false;
-            this.hyperbeambutton.innerHTML = `<button class="superbutton">Hyper Beam</button>`;
+            //this.hyperbeambutton.innerHTML = `<button class="superbutton">Hyper Beam</button>`;
         }
         if (this.energy < 40){
             this.canExplode = false;
-            this.explosionbutton.innerHTML = `<button class="superbutton">Explosion</button>`;
+            //this.explosionbutton.innerHTML = `<button class="superbutton">Explosion</button>`;
         }
         if (this.energy < 50){
             this.canHomerun = false;
-            this.homerunbutton.innerHTML = `<button class="superbutton">Homerun</button>`;
+            //this.homerunbutton.innerHTML = `<button class="superbutton">Homerun</button>`;
         }
     }
     useHomerun() {
@@ -120,15 +120,15 @@ class Fighter {
         //disable supers and re-assign classes to buttons.
         if (this.energy < 30){
             this.canHyperBeam = false;
-            this.hyperbeambutton.innerHTML = `<button class="superbutton">Hyper Beam</button>`;
+            //this.hyperbeambutton.innerHTML = `<button class="superbutton">Hyper Beam</button>`;
         }
         if (this.energy < 40){
             this.canExplode = false;
-            this.explosionbutton.innerHTML = `<button class="superbutton">Explosion</button>`;
+            //this.explosionbutton.innerHTML = `<button class="superbutton">Explosion</button>`;
         }
         if (this.energy < 50){
             this.canHomerun = false;
-            this.homerunbutton.innerHTML = `<button class="superbutton">Homerun</button>`;
+            //this.homerunbutton.innerHTML = `<button class="superbutton">Homerun</button>`;
         }
     }
 }

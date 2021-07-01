@@ -78,18 +78,15 @@ function () {
       this.energybar.innerHTML = "Energy: ".concat(this.energy); //enable supers and re-assign classes to buttons.
 
       if (this.energy >= 30) {
-        this.canHyperBeam = true;
-        this.hyperbeambutton.innerHTML = "<button class=\"highlightedsuperbutton\">Hyper Beam</button>";
+        this.canHyperBeam = true; //this.hyperbeambutton.innerHTML = `<button class="highlightedsuperbutton">Hyper Beam</button>`;
       }
 
       if (this.energy >= 40) {
-        this.canExplode = true;
-        this.explosionbutton.innerHTML = "<button class=\"highlightedsuperbutton\">Explosion</button>";
+        this.canExplode = true; //this.explosionbutton.innerHTML = `<button class="highlightedsuperbutton">Explosion</button>`;
       }
 
       if (this.energy >= 50) {
-        this.canHomerun = true;
-        this.homerunbutton.innerHTML = "<button class=\"highlightedsuperbutton\">Homerun</button>";
+        this.canHomerun = true; //this.homerunbutton.innerHTML = `<button class="highlightedsuperbutton">Homerun</button>`;
       }
     }
   }, {
@@ -99,18 +96,15 @@ function () {
       this.energybar.innerHTML = "Energy: ".concat(this.energy); //disable supers and re-assign classes to buttons.
 
       if (this.energy < 30) {
-        this.canHyperBeam = false;
-        this.hyperbeambutton.innerHTML = "<button class=\"superbutton\">Hyper Beam</button>";
+        this.canHyperBeam = false; //this.hyperbeambutton.innerHTML = `<button class="superbutton">Hyper Beam</button>`;
       }
 
       if (this.energy < 40) {
-        this.canExplode = false;
-        this.explosionbutton.innerHTML = "<button class=\"superbutton\">Explosion</button>";
+        this.canExplode = false; //this.explosionbutton.innerHTML = `<button class="superbutton">Explosion</button>`;
       }
 
       if (this.energy < 50) {
-        this.canHomerun = false;
-        this.homerunbutton.innerHTML = "<button class=\"superbutton\">Homerun</button>";
+        this.canHomerun = false; //this.homerunbutton.innerHTML = `<button class="superbutton">Homerun</button>`;
       }
     }
   }, {
@@ -120,18 +114,15 @@ function () {
       this.energybar.innerHTML = "Energy: ".concat(this.energy); //disable supers and re-assign classes to buttons.
 
       if (this.energy < 30) {
-        this.canHyperBeam = false;
-        this.hyperbeambutton.innerHTML = "<button class=\"superbutton\">Hyper Beam</button>";
+        this.canHyperBeam = false; //this.hyperbeambutton.innerHTML = `<button class="superbutton">Hyper Beam</button>`;
       }
 
       if (this.energy < 40) {
-        this.canExplode = false;
-        this.explosionbutton.innerHTML = "<button class=\"superbutton\">Explosion</button>";
+        this.canExplode = false; //this.explosionbutton.innerHTML = `<button class="superbutton">Explosion</button>`;
       }
 
       if (this.energy < 50) {
-        this.canHomerun = false;
-        this.homerunbutton.innerHTML = "<button class=\"superbutton\">Homerun</button>";
+        this.canHomerun = false; //this.homerunbutton.innerHTML = `<button class="superbutton">Homerun</button>`;
       }
     }
   }, {
@@ -141,18 +132,15 @@ function () {
       this.energybar.innerHTML = "Energy: ".concat(this.energy); //disable supers and re-assign classes to buttons.
 
       if (this.energy < 30) {
-        this.canHyperBeam = false;
-        this.hyperbeambutton.innerHTML = "<button class=\"superbutton\">Hyper Beam</button>";
+        this.canHyperBeam = false; //this.hyperbeambutton.innerHTML = `<button class="superbutton">Hyper Beam</button>`;
       }
 
       if (this.energy < 40) {
-        this.canExplode = false;
-        this.explosionbutton.innerHTML = "<button class=\"superbutton\">Explosion</button>";
+        this.canExplode = false; //this.explosionbutton.innerHTML = `<button class="superbutton">Explosion</button>`;
       }
 
       if (this.energy < 50) {
-        this.canHomerun = false;
-        this.homerunbutton.innerHTML = "<button class=\"superbutton\">Homerun</button>";
+        this.canHomerun = false; //this.homerunbutton.innerHTML = `<button class="superbutton">Homerun</button>`;
       }
     }
   }]);
