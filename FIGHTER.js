@@ -32,10 +32,10 @@ class Fighter {
     constructor(name, HPBar){
         //sneaky variable meant to access player-specific Energy/Super tags in HTML
         this.name = name;
-        this.energybar = document.querySelector(`.${name}__energy`);
-        this.hyperbeambutton = document.querySelector(`.${name}__hyperbeam`);
-        this.explosionbutton = document.querySelector(`.${name}__explosion`);
-        this.homerunbutton = document.querySelector(`.${name}__homerun`);
+        this.energybar = document.querySelector(`.${this.name}__energy`);
+        this.hyperbeambutton = document.querySelector(`.${this.name}__hyperbeamOff`);
+        this.explosionbutton = document.querySelector(`.${this.name}__explosionOff`);
+        this.homerunbutton = document.querySelector(`.${this.name}__homerunOff`);
 
         this.hitpoints = 3;
         this.energy = 0;
@@ -69,15 +69,18 @@ class Fighter {
         //enable supers and re-assign classes to buttons.
         if (this.energy >= 30){
             this.canHyperBeam = true;
-            //this.hyperbeambutton.innerHTML = `<button class="highlightedsuperbutton">Hyper Beam</button>`;
+            this.hyperbeambutton.classList.add(`${this.name}__hyperbeamOn`);
+            this.hyperbeambutton.classList.remove(`${this.name}__hyperbeamOff`);
         }
         if (this.energy >= 40){
             this.canExplode = true;
-            //this.explosionbutton.innerHTML = `<button class="highlightedsuperbutton">Explosion</button>`;
+            this.explosionbutton.classList.add(`${this.name}__explosionOn`);
+            this.explosionbutton.classList.remove(`${this.name}__explosionOff`);
         }
         if (this.energy >= 50){
             this.canHomerun = true;
-            //this.homerunbutton.innerHTML = `<button class="highlightedsuperbutton">Homerun</button>`;
+            this.homerunbutton.classList.add(`${this.name}__homerunOn`);
+            this.homerunbutton.classList.remove(`${this.name}__homerunOff`);
         }
     }
     useHyperBeam() {
@@ -86,15 +89,18 @@ class Fighter {
         //disable supers and re-assign classes to buttons.
         if (this.energy < 30){
             this.canHyperBeam = false;
-            //this.hyperbeambutton.innerHTML = `<button class="superbutton">Hyper Beam</button>`;
+            this.hyperbeambutton.classList.add(`${this.name}__hyperbeamOff`);
+            this.hyperbeambutton.classList.remove(`${this.name}__hyperbeamOn`);
         }
         if (this.energy < 40){
             this.canExplode = false;
-            //this.explosionbutton.innerHTML = `<button class="superbutton">Explosion</button>`;
+            this.explosionbutton.classList.add(`${this.name}__explosionOff`);
+            this.explosionbutton.classList.remove(`${this.name}__explosionOn`);
         }
         if (this.energy < 50){
             this.canHomerun = false;
-            //this.homerunbutton.innerHTML = `<button class="superbutton">Homerun</button>`;
+            this.homerunbutton.classList.add(`${this.name}__homerunOff`);
+            this.homerunbutton.classList.remove(`${this.name}__homerunOn`);
         }
     }
     useExplosion() {
@@ -103,15 +109,18 @@ class Fighter {
         //disable supers and re-assign classes to buttons.
         if (this.energy < 30){
             this.canHyperBeam = false;
-            //this.hyperbeambutton.innerHTML = `<button class="superbutton">Hyper Beam</button>`;
+            this.hyperbeambutton.classList.add(`${this.name}__hyperbeamOff`);
+            this.hyperbeambutton.classList.remove(`${this.name}__hyperbeamOn`);
         }
         if (this.energy < 40){
             this.canExplode = false;
-            //this.explosionbutton.innerHTML = `<button class="superbutton">Explosion</button>`;
+            this.explosionbutton.classList.add(`${this.name}__explosionOff`);
+            this.explosionbutton.classList.remove(`${this.name}__explosionOn`);
         }
         if (this.energy < 50){
             this.canHomerun = false;
-            //this.homerunbutton.innerHTML = `<button class="superbutton">Homerun</button>`;
+            this.homerunbutton.classList.add(`${this.name}__homerunOff`);
+            this.homerunbutton.classList.remove(`${this.name}__homerunOn`);
         }
     }
     useHomerun() {
@@ -120,15 +129,18 @@ class Fighter {
         //disable supers and re-assign classes to buttons.
         if (this.energy < 30){
             this.canHyperBeam = false;
-            //this.hyperbeambutton.innerHTML = `<button class="superbutton">Hyper Beam</button>`;
+            this.hyperbeambutton.classList.add(`${this.name}__hyperbeamOff`);
+            this.hyperbeambutton.classList.remove(`${this.name}__hyperbeamOn`);
         }
         if (this.energy < 40){
             this.canExplode = false;
-            //this.explosionbutton.innerHTML = `<button class="superbutton">Explosion</button>`;
+            this.explosionbutton.classList.add(`${this.name}__explosionOff`);
+            this.explosionbutton.classList.remove(`${this.name}__explosionOn`);
         }
         if (this.energy < 50){
             this.canHomerun = false;
-            //this.homerunbutton.innerHTML = `<button class="superbutton">Homerun</button>`;
+            this.homerunbutton.classList.add(`${this.name}__homerunOff`);
+            this.homerunbutton.classList.remove(`${this.name}__homerunOn`);
         }
     }
 }
@@ -222,7 +234,6 @@ baseball.addEventListener("click", () => {
     }    
 })
 hyperbeam.addEventListener("click", () => {
-    console.log(playerOne.canHyperBeam);
     if (p1Victory == false && p2Victory == false
     && playerOne.canHyperBeam == true){
         let p2attack = playerTwoAttacks(playerTwoAttackChoice(playerTwo));

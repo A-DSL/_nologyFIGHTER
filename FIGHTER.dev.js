@@ -41,10 +41,10 @@ function () {
 
     //sneaky variable meant to access player-specific Energy/Super tags in HTML
     this.name = name;
-    this.energybar = document.querySelector(".".concat(name, "__energy"));
-    this.hyperbeambutton = document.querySelector(".".concat(name, "__hyperbeam"));
-    this.explosionbutton = document.querySelector(".".concat(name, "__explosion"));
-    this.homerunbutton = document.querySelector(".".concat(name, "__homerun"));
+    this.energybar = document.querySelector(".".concat(this.name, "__energy"));
+    this.hyperbeambutton = document.querySelector(".".concat(this.name, "__hyperbeamOff"));
+    this.explosionbutton = document.querySelector(".".concat(this.name, "__explosionOff"));
+    this.homerunbutton = document.querySelector(".".concat(this.name, "__homerunOff"));
     this.hitpoints = 3;
     this.energy = 0; //Class can modify HP Bar HTML.
 
@@ -78,15 +78,21 @@ function () {
       this.energybar.innerHTML = "Energy: ".concat(this.energy); //enable supers and re-assign classes to buttons.
 
       if (this.energy >= 30) {
-        this.canHyperBeam = true; //this.hyperbeambutton.innerHTML = `<button class="highlightedsuperbutton">Hyper Beam</button>`;
+        this.canHyperBeam = true;
+        this.hyperbeambutton.classList.add("".concat(this.name, "__hyperbeamOn"));
+        this.hyperbeambutton.classList.remove("".concat(this.name, "__hyperbeamOff"));
       }
 
       if (this.energy >= 40) {
-        this.canExplode = true; //this.explosionbutton.innerHTML = `<button class="highlightedsuperbutton">Explosion</button>`;
+        this.canExplode = true;
+        this.explosionbutton.classList.add("".concat(this.name, "__explosionOn"));
+        this.explosionbutton.classList.remove("".concat(this.name, "__explosionOff"));
       }
 
       if (this.energy >= 50) {
-        this.canHomerun = true; //this.homerunbutton.innerHTML = `<button class="highlightedsuperbutton">Homerun</button>`;
+        this.canHomerun = true;
+        this.homerunbutton.classList.add("".concat(this.name, "__homerunOn"));
+        this.homerunbutton.classList.remove("".concat(this.name, "__homerunOff"));
       }
     }
   }, {
@@ -96,15 +102,21 @@ function () {
       this.energybar.innerHTML = "Energy: ".concat(this.energy); //disable supers and re-assign classes to buttons.
 
       if (this.energy < 30) {
-        this.canHyperBeam = false; //this.hyperbeambutton.innerHTML = `<button class="superbutton">Hyper Beam</button>`;
+        this.canHyperBeam = false;
+        this.hyperbeambutton.classList.add("".concat(this.name, "__hyperbeamOff"));
+        this.hyperbeambutton.classList.remove("".concat(this.name, "__hyperbeamOn"));
       }
 
       if (this.energy < 40) {
-        this.canExplode = false; //this.explosionbutton.innerHTML = `<button class="superbutton">Explosion</button>`;
+        this.canExplode = false;
+        this.explosionbutton.classList.add("".concat(this.name, "__explosionOff"));
+        this.explosionbutton.classList.remove("".concat(this.name, "__explosionOn"));
       }
 
       if (this.energy < 50) {
-        this.canHomerun = false; //this.homerunbutton.innerHTML = `<button class="superbutton">Homerun</button>`;
+        this.canHomerun = false;
+        this.homerunbutton.classList.add("".concat(this.name, "__homerunOff"));
+        this.homerunbutton.classList.remove("".concat(this.name, "__homerunOn"));
       }
     }
   }, {
@@ -114,15 +126,21 @@ function () {
       this.energybar.innerHTML = "Energy: ".concat(this.energy); //disable supers and re-assign classes to buttons.
 
       if (this.energy < 30) {
-        this.canHyperBeam = false; //this.hyperbeambutton.innerHTML = `<button class="superbutton">Hyper Beam</button>`;
+        this.canHyperBeam = false;
+        this.hyperbeambutton.classList.add("".concat(this.name, "__hyperbeamOff"));
+        this.hyperbeambutton.classList.remove("".concat(this.name, "__hyperbeamOn"));
       }
 
       if (this.energy < 40) {
-        this.canExplode = false; //this.explosionbutton.innerHTML = `<button class="superbutton">Explosion</button>`;
+        this.canExplode = false;
+        this.explosionbutton.classList.add("".concat(this.name, "__explosionOff"));
+        this.explosionbutton.classList.remove("".concat(this.name, "__explosionOn"));
       }
 
       if (this.energy < 50) {
-        this.canHomerun = false; //this.homerunbutton.innerHTML = `<button class="superbutton">Homerun</button>`;
+        this.canHomerun = false;
+        this.homerunbutton.classList.add("".concat(this.name, "__homerunOff"));
+        this.homerunbutton.classList.remove("".concat(this.name, "__homerunOn"));
       }
     }
   }, {
@@ -132,15 +150,21 @@ function () {
       this.energybar.innerHTML = "Energy: ".concat(this.energy); //disable supers and re-assign classes to buttons.
 
       if (this.energy < 30) {
-        this.canHyperBeam = false; //this.hyperbeambutton.innerHTML = `<button class="superbutton">Hyper Beam</button>`;
+        this.canHyperBeam = false;
+        this.hyperbeambutton.classList.add("".concat(this.name, "__hyperbeamOff"));
+        this.hyperbeambutton.classList.remove("".concat(this.name, "__hyperbeamOn"));
       }
 
       if (this.energy < 40) {
-        this.canExplode = false; //this.explosionbutton.innerHTML = `<button class="superbutton">Explosion</button>`;
+        this.canExplode = false;
+        this.explosionbutton.classList.add("".concat(this.name, "__explosionOff"));
+        this.explosionbutton.classList.remove("".concat(this.name, "__explosionOn"));
       }
 
       if (this.energy < 50) {
-        this.canHomerun = false; //this.homerunbutton.innerHTML = `<button class="superbutton">Homerun</button>`;
+        this.canHomerun = false;
+        this.homerunbutton.classList.add("".concat(this.name, "__homerunOff"));
+        this.homerunbutton.classList.remove("".concat(this.name, "__homerunOn"));
       }
     }
   }]);
@@ -234,8 +258,6 @@ baseball.addEventListener("click", function () {
   }
 });
 hyperbeam.addEventListener("click", function () {
-  console.log(playerOne.canHyperBeam);
-
   if (p1Victory == false && p2Victory == false && playerOne.canHyperBeam == true) {
     var p2attack = playerTwoAttacks(playerTwoAttackChoice(playerTwo));
     playerOneSprite.innerHTML = "<img src=\"hyperbeamLeft.png\">"; //increaseEnergy()/useSuper() for each side to monitor Energy and toggle super availability. also adds classes if energy reaches certain amount.

@@ -47,30 +47,67 @@ body{
             grid-template-columns:1fr 1fr 1fr;
             grid-gap:3px;
             padding:2px;
-            span{
+            > span{
                 display:flex;
                 justify-content:center;
                 align-items:center;
-            }
-            button{
-                width:100%;
-                height:100%;
-                border-radius:1px;
-                background-color:rgb(209, 209, 209);
-    
-                font-size:$buttonfontsize;
-                color:black;
-            }
-            .regularbutton{
+                /*Super buttons swap between these two classes based on availability.*/
+                /*P1*/
+                .playerone__hyperbeamOff + button{
+                    color:rgb(105, 105, 105);
+                }
+                .playerone__explosionOff + button{
+                    color:rgb(105, 105, 105);
+                }
+                .playerone__homerunOff + button{
+                    color:rgb(105, 105, 105);
+                }
+                .playerone__hyperbeamOn + button{
+                    color:rgb(35, 0, 235);
+                    font-weight:bold;
+                }
+                .playerone__explosionOn + button{
+                    color:rgb(35, 0, 235);
+                    font-weight:bold;
+                }
+                .playerone__homerunOn + button{
+                    color:rgb(35, 0, 235);
+                    font-weight:bold;
+                }
+                /*P2*/
+                .playertwo__hyperbeamOff + button{
+                    color:rgb(105, 105, 105);
+                }
+                .playertwo__explosionOff + button{
+                    color:rgb(105, 105, 105);
+                }
+                .playertwo__homerunOff + button{
+                    color:rgb(105, 105, 105);
+                }
+                .playertwo__hyperbeamOn + button{
+                    color:rgb(35, 0, 235);
+                    font-weight:bold;
+                }
+                .playertwo__explosionOn + button{
+                    color:rgb(35, 0, 235);
+                    font-weight:bold;
+                }
+                .playertwo__homerunOn + button{
+                    color:rgb(35, 0, 235);
+                    font-weight:bold;
+                }
+                
 
-            }
-            /*Super buttons swap between these two classes based on availability.*/
-            .superbutton{
-                color:rgb(105, 105, 105);
-            }
-            .highlightedsuperbutton{
-                color:rgb(35, 0, 235);
-                font-weight:bold;
+                button{
+                    width:100%;
+                    height:100%;
+                    border-radius:1px;
+                    background-color:rgb(209, 209, 209);
+        
+                    font-size:$buttonfontsize;
+                    color:black;
+                }
+
             }
         }
 
