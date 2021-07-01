@@ -124,14 +124,17 @@ const playerTwoAttackChoice = (fighter) => {
     }
 }
 //test to check if function works
+//(run this function in the buttons and let it return a value simultaneously to determine outcome)
 //console.log(playerTwoAttacks(playerTwoAttackChoice(playerTwo)));
 
 //Event listeners to use P1's attacks and advance game state
 beam.addEventListener("click", () => {
     if (p1Victory == false && p2Victory == false){
-        //determine p2's attack through RNG functions
+        //determine p2's attack + sprite through RNG functions
+        let p2attack = playerTwoAttacks(playerTwoAttackChoice(playerTwo));
         //(play sound effect, optional)
-        //change sprites
+        //change p1 sprite
+        playerOneSprite.innerHTML = `<img src="beamLeft.png">`;
         //increaseEnergy()/useSuper() for each side to monitor Energy
         //add classes and toggle super availability if energy reaches certain amount
         //change dialogue and use deductHP() based on outcome, + change victory code to true and change sprites if one side loses all hp  
@@ -139,29 +142,49 @@ beam.addEventListener("click", () => {
 })
 blast.addEventListener("click", () => {
     if (p1Victory == false && p2Victory == false){
-            
+        //determine p2's attack + sprite through RNG functions
+        let p2attack = playerTwoAttacks(playerTwoAttackChoice(playerTwo));
+        //(play sound effect, optional)
+        //change p1 sprite
+        playerOneSprite.innerHTML = `<img src="blastLeft.png">`;            
     }    
 })
 baseball.addEventListener("click", () => {
     if (p1Victory == false && p2Victory == false){
-            
+        //determine p2's attack + sprite through RNG functions
+        let p2attack = playerTwoAttacks(playerTwoAttackChoice(playerTwo));
+        //(play sound effect, optional)
+        //change p1 sprite
+        playerOneSprite.innerHTML = `<img src="baseballbatLeft.png">`;            
     }    
 })
 hyperbeam.addEventListener("click", () => {
     if (p1Victory == false && p2Victory == false
     && p1CanHyperBeam == true){
-        
+        //determine p2's attack + sprite through RNG functions
+        let p2attack = playerTwoAttacks(playerTwoAttackChoice(playerTwo));
+        //(play sound effect, optional)
+        //change p1 sprite
+        playerOneSprite.innerHTML = `<img src="hyperbeamLeft.png">`;        
     }
 })
 explosion.addEventListener("click", () => {
     if (p1Victory == false && p2Victory == false
     && p1CanExplode == true){
-        
+        //determine p2's attack + sprite through RNG functions
+        let p2attack = playerTwoAttacks(playerTwoAttackChoice(playerTwo));
+        //(play sound effect, optional)
+        //change p1 sprite
+        playerOneSprite.innerHTML = `<img src="explosionLeft.png">`;        
     }  
 })
 homerun.addEventListener("click", () => {
     if (p1Victory == false && p2Victory == false
     && p1CanHomerun == true){
-        
+        //determine p2's attack + sprite through RNG functions
+        let p2attack = playerTwoAttacks(playerTwoAttackChoice(playerTwo));
+        //(play sound effect, optional)
+        //change p1 sprite
+        playerOneSprite.innerHTML = `<img src="homerunLeft.png">`;        
     }  
 })
