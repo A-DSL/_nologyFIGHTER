@@ -148,21 +148,27 @@ var playerTwo = new Fighter(playerTwoHPBar); //test to check if function works
 var playerTwoAttacks = function playerTwoAttacks(result) {
   if (result == 0) {
     playerTwoSprite.innerHTML = "<img src=\"beam.png\">";
+    playerTwo.increaseEnergy();
     return "Beam";
   } else if (result == 1) {
     playerTwoSprite.innerHTML = "<img src=\"blast.png\">";
+    playerTwo.increaseEnergy();
     return "Blast";
   } else if (result == 2) {
     playerTwoSprite.innerHTML = "<img src=\"baseballbat.png\">";
+    playerTwo.increaseEnergy();
     return "Baseball Bat";
   } else if (result == 3) {
     playerTwoSprite.innerHTML = "<img src=\"hyperbeam.png\">";
+    playerTwo.useHyperBeam();
     return "Hyper Beam";
   } else if (result == 4) {
     playerTwoSprite.innerHTML = "<img src=\"explosion.png\">";
+    playerTwo.useExplosion();
     return "Explosion";
   } else if (result == 5) {
     playerTwoSprite.innerHTML = "<img src=\"homerun.png\">";
+    playerTwo.useHomerun();
     return "Homerun";
   }
 };
@@ -196,53 +202,48 @@ beam.addEventListener("click", function () {
     var p2attack = playerTwoAttacks(playerTwoAttackChoice(playerTwo)); //(play sound effect, optional)
     //change p1 sprite
 
-    playerOneSprite.innerHTML = "<img src=\"beamLeft.png\">"; //increaseEnergy()/useSuper() for each side to monitor Energy
-    //add classes and toggle super availability if energy reaches certain amount
-    //change dialogue and use deductHP() based on outcome, + change victory code to true and change sprites if one side loses all hp  
+    playerOneSprite.innerHTML = "<img src=\"beamLeft.png\">"; //increaseEnergy()/useSuper() for each side to monitor Energy and toggle super availability. also adds classes if energy reaches certain amount.
+
+    playerOne.increaseEnergy(); //change dialogue and use deductHP() based on outcome, + change victory code to true and change sprites if one side loses all hp  
   }
 });
 blast.addEventListener("click", function () {
   if (p1Victory == false && p2Victory == false) {
-    //determine p2's attack + sprite through RNG functions
-    var p2attack = playerTwoAttacks(playerTwoAttackChoice(playerTwo)); //(play sound effect, optional)
-    //change p1 sprite
+    var p2attack = playerTwoAttacks(playerTwoAttackChoice(playerTwo));
+    playerOneSprite.innerHTML = "<img src=\"blastLeft.png\">"; //increaseEnergy()/useSuper() for each side to monitor Energy and toggle super availability. also adds classes if energy reaches certain amount.
 
-    playerOneSprite.innerHTML = "<img src=\"blastLeft.png\">";
+    playerOne.increaseEnergy();
   }
 });
 baseball.addEventListener("click", function () {
   if (p1Victory == false && p2Victory == false) {
-    //determine p2's attack + sprite through RNG functions
-    var p2attack = playerTwoAttacks(playerTwoAttackChoice(playerTwo)); //(play sound effect, optional)
-    //change p1 sprite
+    var p2attack = playerTwoAttacks(playerTwoAttackChoice(playerTwo));
+    playerOneSprite.innerHTML = "<img src=\"baseballbatLeft.png\">"; //increaseEnergy()/useSuper() for each side to monitor Energy and toggle super availability. also adds classes if energy reaches certain amount.
 
-    playerOneSprite.innerHTML = "<img src=\"baseballbatLeft.png\">";
+    playerOne.increaseEnergy();
   }
 });
 hyperbeam.addEventListener("click", function () {
-  if (p1Victory == false && p2Victory == false && p1CanHyperBeam == true) {
-    //determine p2's attack + sprite through RNG functions
-    var p2attack = playerTwoAttacks(playerTwoAttackChoice(playerTwo)); //(play sound effect, optional)
-    //change p1 sprite
+  if (p1Victory == false && p2Victory == false && playerOne.canHyperBeam == true) {
+    var p2attack = playerTwoAttacks(playerTwoAttackChoice(playerTwo));
+    playerOneSprite.innerHTML = "<img src=\"hyperbeamLeft.png\">"; //increaseEnergy()/useSuper() for each side to monitor Energy and toggle super availability. also adds classes if energy reaches certain amount.
 
-    playerOneSprite.innerHTML = "<img src=\"hyperbeamLeft.png\">";
+    playerOne.useHyperBeam();
   }
 });
 explosion.addEventListener("click", function () {
-  if (p1Victory == false && p2Victory == false && p1CanExplode == true) {
-    //determine p2's attack + sprite through RNG functions
-    var p2attack = playerTwoAttacks(playerTwoAttackChoice(playerTwo)); //(play sound effect, optional)
-    //change p1 sprite
+  if (p1Victory == false && p2Victory == false && playerOne.canExplode == true) {
+    var p2attack = playerTwoAttacks(playerTwoAttackChoice(playerTwo));
+    playerOneSprite.innerHTML = "<img src=\"explosionLeft.png\">"; //increaseEnergy()/useSuper() for each side to monitor Energy and toggle super availability. also adds classes if energy reaches certain amount.
 
-    playerOneSprite.innerHTML = "<img src=\"explosionLeft.png\">";
+    playerOne.useExplosion();
   }
 });
 homerun.addEventListener("click", function () {
-  if (p1Victory == false && p2Victory == false && p1CanHomerun == true) {
-    //determine p2's attack + sprite through RNG functions
-    var p2attack = playerTwoAttacks(playerTwoAttackChoice(playerTwo)); //(play sound effect, optional)
-    //change p1 sprite
+  if (p1Victory == false && p2Victory == false && playerOne.canHomerun == true) {
+    var p2attack = playerTwoAttacks(playerTwoAttackChoice(playerTwo));
+    playerOneSprite.innerHTML = "<img src=\"homerunLeft.png\">"; //increaseEnergy()/useSuper() for each side to monitor Energy and toggle super availability. also adds classes if energy reaches certain amount.
 
-    playerOneSprite.innerHTML = "<img src=\"homerunLeft.png\">";
+    playerOne.useHomerun();
   }
 });
