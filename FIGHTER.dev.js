@@ -10,8 +10,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 //-A class that will be used for the two fighters. This consists of a HP value, Energy value, and three functions for altering these values (HP loss, Energy gain, Energy loss from Super). 
 //Event listeners for all of P1's buttons, for performing each attack and determining the random attack P2 will use. This will change image indexing and call the fighter class functions based on if statements. It will also affect various toggles based on Energy count, which grant access to Supers.
 //P2's buttons are purely cosmetic and should only change to highlight when their Supers are available.
-//Accessor variables for HTML code.
+//Values to toggle for when supers are available or when victory/loss occurs.
+var p1CanHyperBeam = false;
+var p1CanExplode = false;
+var p1CanHomerun = false;
+var p2CanHyperBeam = false;
+var p2CanExplode = false;
+var p2CanHomerun = false;
+var p1Victory = false;
+var p2Victory = false; //Accessor variables for HTML code.
 //  HP Bars
+
 var playerOneHPBar = document.querySelector(".playerone__HP");
 var playerTwoHPBar = document.querySelector(".playertwo__HP"); //  Normals
 
@@ -61,3 +70,17 @@ var playerOne = new Fighter(playerOneHPBar);
 var playerTwo = new Fighter(playerTwoHPBar); //test to check if function works
 //playerOne.deductHP();
 //console.log(playerOne);
+//Event listeners to use attacks and advance game state
+
+beam.addEventListener("click", function () {});
+blast.addEventListener("click", function () {});
+baseball.addEventListener("click", function () {});
+hyperbeam.addEventListener("click", function () {
+  if (p1CanHyperBeam == true) {}
+});
+explosion.addEventListener("click", function () {
+  if (p1CanExplode == true) {}
+});
+homerun.addEventListener("click", function () {
+  if (p1CanHomerun == true) {}
+});
