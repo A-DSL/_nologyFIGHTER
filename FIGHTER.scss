@@ -25,6 +25,7 @@ body{
     width:100%;
     display:flex;
     > .player{
+        padding-top:6px;
         width:50%;
         display:flex;
         flex-direction:column;
@@ -42,11 +43,11 @@ body{
             padding:2px;
             > .playerone__energy{
                 padding:2px 0;
-                padding-right:55%;
+                width:100%;
             }
             > .playertwo__energy{
                 padding:2px 0;
-                padding-right:55%;
+                width:100%;
             }
         }
 
@@ -138,5 +139,33 @@ body{
     > .dialogue__headline{
         padding:6px 0;
         font-size:$dialogueheadlinesize;
+    }
+}
+
+@media screen and (min-width:481px){
+    body{
+        padding:0 10vw;
+    }
+    .players{
+        > .player{
+            .playerone__energy{
+                font-size:16px;
+            }
+            .playertwo__energy{
+                font-size:16px;
+            }
+            > .images{
+                margin:5vh 0 2vh 0;
+            }
+        }
+    }
+    .dialogue{
+        > .dialogue__headline{
+            font-size:22px;
+        }
+        > .dialogue__flavourtext{
+            padding:0.4vh 0 0 0;
+            font-size:16px;
+        }
     }
 }
