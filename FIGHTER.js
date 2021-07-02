@@ -218,8 +218,18 @@ beam.addEventListener("click", () => {
         if (p2attack == "Baseball Bat" || p2attack == "Homerun" || 
         p2attack == "Hyper Beam"){
             playerOne.deductHP();
-        } else if (p2attack == "Beam"){
+            if (playerOne.hitpoints == 0){
+                p2victory = true;
+                playerOneSprite.innerHTML = `<img src="defeatedLeft.png">`;
+                playerTwoSprite.innerHTML = `<img src="victory.png">`;
+                dialogueHeadline.innerHTML = "You lost! Your BEAM was handily beaten.";
+                dialogueFlavourText.innerHTML = "Better luck next time! Refresh the page to try again.";
+            } else{
 
+            }
+        } else if (p2attack == "Beam"){
+            dialogueHeadline.innerHTML = "Both fighters used BEAM!";
+            dialogueFlavourText.innerHTML = "The beams collide, resulting in no damage.";
         } else{
             playerTwo.deductHP();
         }
@@ -232,11 +242,21 @@ blast.addEventListener("click", () => {
         playerOneSprite.innerHTML = `<img src="blastLeft.png">`;
         playerOne.increaseEnergy();  
         
-        if (p2attack == "Baseball Bat" || p2attack == "Homerun" || 
-        p2attack == "Hyper Beam"){
+        if (p2attack == "Beam" || p2attack == "Hyper Beam" || 
+        p2attack == "Explosion"){
             playerOne.deductHP();
-        } else if (p2attack == "Beam"){
+            if (playerOne.hitpoints == 0){
+                p2victory = true;
+                playerOneSprite.innerHTML = `<img src="defeatedLeft.png">`;
+                playerTwoSprite.innerHTML = `<img src="victory.png">`;
+                dialogueHeadline.innerHTML = "Your opponent quashes your BLAST, and you lose!";
+                dialogueFlavourText.innerHTML = "Better luck next time! Refresh the page to try again.";
+            } else{
 
+            }
+        } else if (p2attack == "Blast"){
+            dialogueHeadline.innerHTML = "Both fighters used BLAST!";
+            dialogueFlavourText.innerHTML = "Somehow, the explosions cancel each other out, resulting in no damage.";
         } else{
             playerTwo.deductHP();
         }
@@ -249,11 +269,21 @@ baseball.addEventListener("click", () => {
         playerOneSprite.innerHTML = `<img src="baseballbatLeft.png">`; 
         playerOne.increaseEnergy();           
 
-        if (p2attack == "Baseball Bat" || p2attack == "Homerun" || 
-        p2attack == "Hyper Beam"){
+        if (p2attack == "Blast" || p2attack == "Explosion" || 
+        p2attack == "Homerun"){
             playerOne.deductHP();
-        } else if (p2attack == "Beam"){
+            if (playerOne.hitpoints == 0){
+                p2victory = true;
+                playerOneSprite.innerHTML = `<img src="defeatedLeft.png">`;
+                playerTwoSprite.innerHTML = `<img src="victory.png">`;
+                dialogueHeadline.innerHTML = "Strike 3, and you're out!";
+                dialogueFlavourText.innerHTML = "Better luck next time! Refresh the page to try again.";
+            } else{
 
+            }
+        } else if (p2attack == "Baseball Bat"){
+            dialogueHeadline.innerHTML = "Both fighters used BASEBALL!";
+            dialogueFlavourText.innerHTML = "No damage was taken, but the audience is very impressed.";
         } else{
             playerTwo.deductHP();
         }
@@ -267,11 +297,20 @@ hyperbeam.addEventListener("click", () => {
         playerOneSprite.innerHTML = `<img src="hyperbeamLeft.png">`;    
         playerOne.useHyperBeam();  
 
-        if (p2attack == "Baseball Bat" || p2attack == "Homerun" || 
-        p2attack == "Hyper Beam"){
+        if (p2attack == "Baseball Bat" || p2attack == "Homerun"){
             playerOne.deductHP();
-        } else if (p2attack == "Beam"){
+            if (playerOne.hitpoints == 0){
+                p2victory = true;
+                playerOneSprite.innerHTML = `<img src="defeatedLeft.png">`;
+                playerTwoSprite.innerHTML = `<img src="victory.png">`;
+                dialogueHeadline.innerHTML = "Even with your strongest HYPER BEAM, you unfortunately lose!";
+                dialogueFlavourText.innerHTML = "Better luck next time! Refresh the page to try again.";
+            } else{
 
+            }
+        } else if (p2attack == "Hyper Beam"){
+            dialogueHeadline.innerHTML = "Both fighters duked it out with a HYPER BEAM!";
+            dialogueFlavourText.innerHTML = "But they're evenly matched. Now they're a bit sad they couldn't show off.";
         } else{
             playerTwo.deductHP();
         }
@@ -285,11 +324,20 @@ explosion.addEventListener("click", () => {
         playerOneSprite.innerHTML = `<img src="explosionLeft.png">`;   
         playerOne.useExplosion();
         
-        if (p2attack == "Baseball Bat" || p2attack == "Homerun" || 
-        p2attack == "Hyper Beam"){
+        if (p2attack == "Beam" || p2attack == "Hyper Beam"){
             playerOne.deductHP();
-        } else if (p2attack == "Beam"){
+            if (playerOne.hitpoints == 0){
+                p2victory = true;
+                playerOneSprite.innerHTML = `<img src="defeatedLeft.png">`;
+                playerTwoSprite.innerHTML = `<img src="victory.png">`;
+                dialogueHeadline.innerHTML = "Even your coolest EXPLOSION couldn't save you.";
+                dialogueFlavourText.innerHTML = "Better luck next time! Refresh the page to try again.";
+            } else{
 
+            }
+        } else if (p2attack == "Explosion"){
+            dialogueHeadline.innerHTML = "Both fighters finger-snapped their coolest EXPLOSION!";
+            dialogueFlavourText.innerHTML = "Neither of them took damage, but they're having fun nonetheless.";
         } else{
             playerTwo.deductHP();
         }
@@ -303,11 +351,20 @@ homerun.addEventListener("click", () => {
         playerOneSprite.innerHTML = `<img src="homerunLeft.png">`;   
         playerOne.useHomerun();
         
-        if (p2attack == "Baseball Bat" || p2attack == "Homerun" || 
-        p2attack == "Hyper Beam"){
+        if (p2attack == "Blast" || p2attack == "Explosion"){
             playerOne.deductHP();
-        } else if (p2attack == "Beam"){
+            if (playerOne.hitpoints == 0){
+                p2victory = true;
+                playerOneSprite.innerHTML = `<img src="defeatedLeft.png">`;
+                playerTwoSprite.innerHTML = `<img src="victory.png">`;
+                dialogueHeadline.innerHTML = "You make a HOMERUN that'd awe any baseball team... but it isn't enough.";
+                dialogueFlavourText.innerHTML = "Better luck next time! Refresh the page to try again.";
+            } else{
 
+            }
+        } else if (p2attack == "Homerun"){
+            dialogueHeadline.innerHTML = "Both fighters stepped up to the bat with a world-record HOMERUN!";
+            dialogueFlavourText.innerHTML = "The clash was so intense that it made a new star in the sky. Neither of them took damage, though.";
         } else{
             playerTwo.deductHP();
         }
