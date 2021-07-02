@@ -215,7 +215,7 @@ const playerTwoAttackChoice = (fighter) => {
 
 //Event listeners to use P1's attacks and advance game state
 beam.addEventListener("click", () => {
-    if (p1Victory == false || p2Victory == false){
+    if (p1Victory == false && p2Victory == false){
         //Player 2's attack
         let p2attack = playerTwoAttacks(playerTwoAttackChoice(playerTwo));
         //(play sound effect, optional)
@@ -228,7 +228,7 @@ beam.addEventListener("click", () => {
         p2attack == "Hyper Beam"){
             playerOne.deductHP();
             if (playerOne.hitpoints == 0){
-                p2victory = true;
+                p2Victory = true;
                 playerOneSprite.innerHTML = `<img src="defeatedLeft.png">`;
                 playerTwoSprite.innerHTML = `<img src="victory.png">`;
                 dialogueHeadline.innerHTML = `You lost! Your BEAM was handily beaten by a ${p2attack}.`;
@@ -242,7 +242,7 @@ beam.addEventListener("click", () => {
         } else{
             playerTwo.deductHP();
             if (playerTwo.hitpoints == 0){
-                p1victory = true;
+                p1Victory = true;
                 playerOneSprite.innerHTML = `<img src="victoryLeft.png">`;
                 playerTwoSprite.innerHTML = `<img src="defeated.png">`;
                 dialogueHeadline.innerHTML = `Your BEAM goes through your opponent's ${p2attack} and scores a direct hit.`;
@@ -254,7 +254,7 @@ beam.addEventListener("click", () => {
     }
 })
 blast.addEventListener("click", () => {
-    if (p1Victory == false || p2Victory == false){
+    if (p1Victory == false && p2Victory == false){
         let p2attack = playerTwoAttacks(playerTwoAttackChoice(playerTwo));
 
         playerOneSprite.innerHTML = `<img src="blastLeft.png">`;
@@ -264,7 +264,7 @@ blast.addEventListener("click", () => {
         p2attack == "Explosion"){
             playerOne.deductHP();
             if (playerOne.hitpoints == 0){
-                p2victory = true;
+                p2Victory = true;
                 playerOneSprite.innerHTML = `<img src="defeatedLeft.png">`;
                 playerTwoSprite.innerHTML = `<img src="victory.png">`;
                 dialogueHeadline.innerHTML = `Your opponent quashes your BLAST with a ${p2attack}, and you lose!`;
@@ -278,7 +278,7 @@ blast.addEventListener("click", () => {
         } else{
             playerTwo.deductHP();
             if (playerTwo.hitpoints == 0){
-                p1victory = true;
+                p1Victory = true;
                 playerOneSprite.innerHTML = `<img src="victoryLeft.png">`;
                 playerTwoSprite.innerHTML = `<img src="defeated.png">`;
                 dialogueHeadline.innerHTML = `Your BLAST cuts right through your opponent's ${p2attack}.`;
@@ -290,7 +290,7 @@ blast.addEventListener("click", () => {
     }    
 })
 baseball.addEventListener("click", () => {
-    if (p1Victory == false || p2Victory == false){
+    if (p1Victory == false && p2Victory == false){
         let p2attack = playerTwoAttacks(playerTwoAttackChoice(playerTwo));
 
         playerOneSprite.innerHTML = `<img src="baseballbatLeft.png">`; 
@@ -300,7 +300,7 @@ baseball.addEventListener("click", () => {
         p2attack == "Homerun"){
             playerOne.deductHP();
             if (playerOne.hitpoints == 0){
-                p2victory = true;
+                p2Victory = true;
                 playerOneSprite.innerHTML = `<img src="defeatedLeft.png">`;
                 playerTwoSprite.innerHTML = `<img src="victory.png">`;
                 dialogueHeadline.innerHTML = `Strike 3 from a ${p2attack}, and you're out!`;
@@ -314,7 +314,7 @@ baseball.addEventListener("click", () => {
         } else{
             playerTwo.deductHP();
             if (playerTwo.hitpoints == 0){
-                p1victory = true;
+                p1Victory = true;
                 playerOneSprite.innerHTML = `<img src="victoryLeft.png">`;
                 playerTwoSprite.innerHTML = `<img src="defeated.png">`;
                 dialogueHeadline.innerHTML = `You overcome your opponent's ${p2attack} through the power of baseball!`;
@@ -326,8 +326,7 @@ baseball.addEventListener("click", () => {
     }    
 })
 hyperbeam.addEventListener("click", () => {
-    if ((p1Victory == false || p2Victory == false)
-    && playerOne.canHyperBeam == true){
+    if (p1Victory == false && p2Victory == false && playerOne.canHyperBeam == true){
         let p2attack = playerTwoAttacks(playerTwoAttackChoice(playerTwo));
 
         playerOneSprite.innerHTML = `<img src="hyperbeamLeft.png">`;    
@@ -336,7 +335,7 @@ hyperbeam.addEventListener("click", () => {
         if (p2attack == "Baseball Bat" || p2attack == "Homerun"){
             playerOne.deductHP();
             if (playerOne.hitpoints == 0){
-                p2victory = true;
+                p2Victory = true;
                 playerOneSprite.innerHTML = `<img src="defeatedLeft.png">`;
                 playerTwoSprite.innerHTML = `<img src="victory.png">`;
                 dialogueHeadline.innerHTML = `Even with your strongest HYPER BEAM, you unfortunately lose to your opponent's ${p2attack}.`;
@@ -350,7 +349,7 @@ hyperbeam.addEventListener("click", () => {
         } else{
             playerTwo.deductHP();
             if (playerTwo.hitpoints == 0){
-                p1victory = true;
+                p1Victory = true;
                 playerOneSprite.innerHTML = `<img src="victoryLeft.png">`;
                 playerTwoSprite.innerHTML = `<img src="defeated.png">`;
                 dialogueHeadline.innerHTML = `You easily overcome your opponent's ${p2attack} through the sheer determination pulsing in your HYPER BEAM.`;
@@ -362,8 +361,7 @@ hyperbeam.addEventListener("click", () => {
     }
 })
 explosion.addEventListener("click", () => {
-    if ((p1Victory == false || p2Victory == false)
-    && playerOne.canExplode == true){
+    if (p1Victory == false && p2Victory == false && playerOne.canExplode == true){
         let p2attack = playerTwoAttacks(playerTwoAttackChoice(playerTwo));
 
         playerOneSprite.innerHTML = `<img src="explosionLeft.png">`;   
@@ -372,7 +370,7 @@ explosion.addEventListener("click", () => {
         if (p2attack == "Beam" || p2attack == "Hyper Beam"){
             playerOne.deductHP();
             if (playerOne.hitpoints == 0){
-                p2victory = true;
+                p2Victory = true;
                 playerOneSprite.innerHTML = `<img src="defeatedLeft.png">`;
                 playerTwoSprite.innerHTML = `<img src="victory.png">`;
                 dialogueHeadline.innerHTML = `Even your coolest EXPLOSION couldn't save you from a ${p2attack}.`;
@@ -386,7 +384,7 @@ explosion.addEventListener("click", () => {
         } else{
             playerTwo.deductHP();
             if (playerTwo.hitpoints == 0){
-                p1victory = true;
+                p1Victory = true;
                 playerOneSprite.innerHTML = `<img src="victoryLeft.png">`;
                 playerTwoSprite.innerHTML = `<img src="defeated.png">`;
                 dialogueHeadline.innerHTML = `You completely overwhelm your opponent's ${p2attack} with the coolest EXPLOSION imaginable.`;
@@ -398,8 +396,7 @@ explosion.addEventListener("click", () => {
     }  
 })
 homerun.addEventListener("click", () => {
-    if ((p1Victory == false || p2Victory == false)
-    && playerOne.canHomerun == true){
+    if (p1Victory == false && p2Victory == false && playerOne.canHomerun == true){
         let p2attack = playerTwoAttacks(playerTwoAttackChoice(playerTwo));
 
         playerOneSprite.innerHTML = `<img src="homerunLeft.png">`;   
@@ -408,7 +405,7 @@ homerun.addEventListener("click", () => {
         if (p2attack == "Blast" || p2attack == "Explosion"){
             playerOne.deductHP();
             if (playerOne.hitpoints == 0){
-                p2victory = true;
+                p2Victory = true;
                 playerOneSprite.innerHTML = `<img src="defeatedLeft.png">`;
                 playerTwoSprite.innerHTML = `<img src="victory.png">`;
                 dialogueHeadline.innerHTML = `You make a HOMERUN that'd awe any baseball team... but it isn't enough to beat an ${p2attack}.`;
@@ -422,7 +419,7 @@ homerun.addEventListener("click", () => {
         } else{
             playerTwo.deductHP();
             if (playerTwo.hitpoints == 0){
-                p1victory = true;
+                p1Victory = true;
                 playerOneSprite.innerHTML = `<img src="victoryLeft.png">`;
                 playerTwoSprite.innerHTML = `<img src="defeated.png">`;
                 dialogueHeadline.innerHTML = `You make a HOMERUN so powerful that it instantly crushes your opponent's ${p2attack}!`;

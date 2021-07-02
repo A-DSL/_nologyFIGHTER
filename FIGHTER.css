@@ -35,6 +35,14 @@ body {
   align-items: center;
   padding: 2px;
 }
+.players > .player > .statistics > .playerone__energy {
+  padding: 2px 0;
+  padding-right: 55%;
+}
+.players > .player > .statistics > .playertwo__energy {
+  padding: 2px 0;
+  padding-right: 55%;
+}
 .players > .player > .buttons {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -101,6 +109,7 @@ body {
 }
 .players > .player > .images {
   width: 100%;
+  margin: 10px 0 6px 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -108,5 +117,10 @@ body {
 
 .dialogue {
   width: 100%;
-  font-size: 20px;
+  padding: 4px;
+  font-size: 14px;
+}
+.dialogue > .dialogue__headline {
+  padding: 6px 0;
+  font-size: 18px;
 }
