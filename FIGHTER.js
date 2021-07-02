@@ -85,6 +85,9 @@ class Fighter {
     }
     useHyperBeam() {
         this.energy -= 30;
+        if (this.energy < 0){
+            this.energy = 0;
+        }
         this.energybar.innerHTML = `Energy: ${this.energy}`;
         //disable supers and re-assign classes to buttons.
         if (this.energy < 30){
@@ -105,6 +108,9 @@ class Fighter {
     }
     useExplosion() {
         this.energy -= 40;
+        if (this.energy < 0){
+            this.energy = 0;
+        }
         this.energybar.innerHTML = `Energy: ${this.energy}`;
         //disable supers and re-assign classes to buttons.
         if (this.energy < 30){
@@ -125,6 +131,9 @@ class Fighter {
     }
     useHomerun() {
         this.energy -= 50;
+        if (this.energy < 0){
+            this.energy = 0;
+        }
         this.energybar.innerHTML = `Energy: ${this.energy}`;
         //disable supers and re-assign classes to buttons.
         if (this.energy < 30){
@@ -206,7 +215,7 @@ const playerTwoAttackChoice = (fighter) => {
 
 //Event listeners to use P1's attacks and advance game state
 beam.addEventListener("click", () => {
-    if (p1Victory == false && p2Victory == false){
+    if (p1Victory == false || p2Victory == false){
         //Player 2's attack
         let p2attack = playerTwoAttacks(playerTwoAttackChoice(playerTwo));
         //(play sound effect, optional)
@@ -222,7 +231,7 @@ beam.addEventListener("click", () => {
                 p2victory = true;
                 playerOneSprite.innerHTML = `<img src="defeatedLeft.png">`;
                 playerTwoSprite.innerHTML = `<img src="victory.png">`;
-                dialogueHeadline.innerHTML = "You lost! Your BEAM was handily beaten.";
+                dialogueHeadline.innerHTML = `You lost! Your BEAM was handily beaten by a ${p2attack}.`;
                 dialogueFlavourText.innerHTML = "Better luck next time! Refresh the page to try again.";
             } else{
 
@@ -232,11 +241,20 @@ beam.addEventListener("click", () => {
             dialogueFlavourText.innerHTML = "The beams collide, resulting in no damage.";
         } else{
             playerTwo.deductHP();
+            if (playerTwo.hitpoints == 0){
+                p1victory = true;
+                playerOneSprite.innerHTML = `<img src="victoryLeft.png">`;
+                playerTwoSprite.innerHTML = `<img src="defeated.png">`;
+                dialogueHeadline.innerHTML = `Your BEAM goes through your opponent's ${p2attack} and scores a direct hit.`;
+                dialogueFlavourText.innerHTML = "YOU WIN! Refresh the page if you want another round.";
+            } else{
+
+            }
         }
     }
 })
 blast.addEventListener("click", () => {
-    if (p1Victory == false && p2Victory == false){
+    if (p1Victory == false || p2Victory == false){
         let p2attack = playerTwoAttacks(playerTwoAttackChoice(playerTwo));
 
         playerOneSprite.innerHTML = `<img src="blastLeft.png">`;
@@ -249,7 +267,7 @@ blast.addEventListener("click", () => {
                 p2victory = true;
                 playerOneSprite.innerHTML = `<img src="defeatedLeft.png">`;
                 playerTwoSprite.innerHTML = `<img src="victory.png">`;
-                dialogueHeadline.innerHTML = "Your opponent quashes your BLAST, and you lose!";
+                dialogueHeadline.innerHTML = `Your opponent quashes your BLAST with a ${p2attack}, and you lose!`;
                 dialogueFlavourText.innerHTML = "Better luck next time! Refresh the page to try again.";
             } else{
 
@@ -259,11 +277,20 @@ blast.addEventListener("click", () => {
             dialogueFlavourText.innerHTML = "Somehow, the explosions cancel each other out, resulting in no damage.";
         } else{
             playerTwo.deductHP();
+            if (playerTwo.hitpoints == 0){
+                p1victory = true;
+                playerOneSprite.innerHTML = `<img src="victoryLeft.png">`;
+                playerTwoSprite.innerHTML = `<img src="defeated.png">`;
+                dialogueHeadline.innerHTML = `Your BLAST cuts right through your opponent's ${p2attack}.`;
+                dialogueFlavourText.innerHTML = "YOU WIN! Refresh the page if you want another round.";
+            } else{
+
+            }
         }
     }    
 })
 baseball.addEventListener("click", () => {
-    if (p1Victory == false && p2Victory == false){
+    if (p1Victory == false || p2Victory == false){
         let p2attack = playerTwoAttacks(playerTwoAttackChoice(playerTwo));
 
         playerOneSprite.innerHTML = `<img src="baseballbatLeft.png">`; 
@@ -276,7 +303,7 @@ baseball.addEventListener("click", () => {
                 p2victory = true;
                 playerOneSprite.innerHTML = `<img src="defeatedLeft.png">`;
                 playerTwoSprite.innerHTML = `<img src="victory.png">`;
-                dialogueHeadline.innerHTML = "Strike 3, and you're out!";
+                dialogueHeadline.innerHTML = `Strike 3 from a ${p2attack}, and you're out!`;
                 dialogueFlavourText.innerHTML = "Better luck next time! Refresh the page to try again.";
             } else{
 
@@ -286,11 +313,20 @@ baseball.addEventListener("click", () => {
             dialogueFlavourText.innerHTML = "No damage was taken, but the audience is very impressed.";
         } else{
             playerTwo.deductHP();
+            if (playerTwo.hitpoints == 0){
+                p1victory = true;
+                playerOneSprite.innerHTML = `<img src="victoryLeft.png">`;
+                playerTwoSprite.innerHTML = `<img src="defeated.png">`;
+                dialogueHeadline.innerHTML = `You overcome your opponent's ${p2attack} through the power of baseball!`;
+                dialogueFlavourText.innerHTML = "YOU WIN! Refresh the page if you want another round.";
+            } else{
+
+            }
         }
     }    
 })
 hyperbeam.addEventListener("click", () => {
-    if (p1Victory == false && p2Victory == false
+    if ((p1Victory == false || p2Victory == false)
     && playerOne.canHyperBeam == true){
         let p2attack = playerTwoAttacks(playerTwoAttackChoice(playerTwo));
 
@@ -303,7 +339,7 @@ hyperbeam.addEventListener("click", () => {
                 p2victory = true;
                 playerOneSprite.innerHTML = `<img src="defeatedLeft.png">`;
                 playerTwoSprite.innerHTML = `<img src="victory.png">`;
-                dialogueHeadline.innerHTML = "Even with your strongest HYPER BEAM, you unfortunately lose!";
+                dialogueHeadline.innerHTML = `Even with your strongest HYPER BEAM, you unfortunately lose to your opponent's ${p2attack}.`;
                 dialogueFlavourText.innerHTML = "Better luck next time! Refresh the page to try again.";
             } else{
 
@@ -313,11 +349,20 @@ hyperbeam.addEventListener("click", () => {
             dialogueFlavourText.innerHTML = "But they're evenly matched. Now they're a bit sad they couldn't show off.";
         } else{
             playerTwo.deductHP();
+            if (playerTwo.hitpoints == 0){
+                p1victory = true;
+                playerOneSprite.innerHTML = `<img src="victoryLeft.png">`;
+                playerTwoSprite.innerHTML = `<img src="defeated.png">`;
+                dialogueHeadline.innerHTML = `You easily overcome your opponent's ${p2attack} through the sheer determination pulsing in your HYPER BEAM.`;
+                dialogueFlavourText.innerHTML = "YOU WIN! Refresh the page if you want another round.";
+            } else{
+
+            }
         }
     }
 })
 explosion.addEventListener("click", () => {
-    if (p1Victory == false && p2Victory == false
+    if ((p1Victory == false || p2Victory == false)
     && playerOne.canExplode == true){
         let p2attack = playerTwoAttacks(playerTwoAttackChoice(playerTwo));
 
@@ -330,7 +375,7 @@ explosion.addEventListener("click", () => {
                 p2victory = true;
                 playerOneSprite.innerHTML = `<img src="defeatedLeft.png">`;
                 playerTwoSprite.innerHTML = `<img src="victory.png">`;
-                dialogueHeadline.innerHTML = "Even your coolest EXPLOSION couldn't save you.";
+                dialogueHeadline.innerHTML = `Even your coolest EXPLOSION couldn't save you from a ${p2attack}.`;
                 dialogueFlavourText.innerHTML = "Better luck next time! Refresh the page to try again.";
             } else{
 
@@ -340,11 +385,20 @@ explosion.addEventListener("click", () => {
             dialogueFlavourText.innerHTML = "Neither of them took damage, but they're having fun nonetheless.";
         } else{
             playerTwo.deductHP();
+            if (playerTwo.hitpoints == 0){
+                p1victory = true;
+                playerOneSprite.innerHTML = `<img src="victoryLeft.png">`;
+                playerTwoSprite.innerHTML = `<img src="defeated.png">`;
+                dialogueHeadline.innerHTML = `You completely overwhelm your opponent's ${p2attack} with the coolest EXPLOSION imaginable.`;
+                dialogueFlavourText.innerHTML = "YOU WIN! Refresh the page if you want another round.";
+            } else{
+
+            }
         }
     }  
 })
 homerun.addEventListener("click", () => {
-    if (p1Victory == false && p2Victory == false
+    if ((p1Victory == false || p2Victory == false)
     && playerOne.canHomerun == true){
         let p2attack = playerTwoAttacks(playerTwoAttackChoice(playerTwo));
 
@@ -357,7 +411,7 @@ homerun.addEventListener("click", () => {
                 p2victory = true;
                 playerOneSprite.innerHTML = `<img src="defeatedLeft.png">`;
                 playerTwoSprite.innerHTML = `<img src="victory.png">`;
-                dialogueHeadline.innerHTML = "You make a HOMERUN that'd awe any baseball team... but it isn't enough.";
+                dialogueHeadline.innerHTML = `You make a HOMERUN that'd awe any baseball team... but it isn't enough to beat an ${p2attack}.`;
                 dialogueFlavourText.innerHTML = "Better luck next time! Refresh the page to try again.";
             } else{
 
@@ -367,6 +421,15 @@ homerun.addEventListener("click", () => {
             dialogueFlavourText.innerHTML = "The clash was so intense that it made a new star in the sky. Neither of them took damage, though.";
         } else{
             playerTwo.deductHP();
+            if (playerTwo.hitpoints == 0){
+                p1victory = true;
+                playerOneSprite.innerHTML = `<img src="victoryLeft.png">`;
+                playerTwoSprite.innerHTML = `<img src="defeated.png">`;
+                dialogueHeadline.innerHTML = `You make a HOMERUN so powerful that it instantly crushes your opponent's ${p2attack}!`;
+                dialogueFlavourText.innerHTML = "YOU WIN! Refresh the page if you want another round.";
+            } else{
+
+            }
         }
     }  
 })
