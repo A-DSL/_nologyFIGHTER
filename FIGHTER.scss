@@ -148,11 +148,22 @@ body{
     }
     .players{
         > .player{
+            > .statistics > p > img{
+                margin:10px;
+            }
             .playerone__energy{
                 font-size:16px;
+                margin:10px 0 10px 40px;
             }
             .playertwo__energy{
                 font-size:16px;
+                margin:10px 0 10px 40px;
+            }
+            .buttons{
+                button{
+                    margin:10px 20px;
+                    padding:2px 0 2px 0;
+                }
             }
             > .images{
                 margin:5vh 0 2vh 0;

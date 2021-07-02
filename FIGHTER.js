@@ -357,7 +357,6 @@ hyperbeam.addEventListener("click", () => {
             playerTwo.deductHP();
             if (playerTwo.hitpoints == 0){
                 p1Victory = true;
-                playerOneSprite.innerHTML = `<img src="victoryLeft.png">`;
                 playerTwoSprite.innerHTML = `<img src="defeated.png">`;
                 dialogueHeadline.innerHTML = `You easily overcome your opponent's ${p2attack} through the sheer determination pulsing in your HYPER BEAM.`;
                 dialogueFlavourText.innerHTML = "YOU WIN! Refresh the page for another round.";
@@ -394,7 +393,6 @@ explosion.addEventListener("click", () => {
             playerTwo.deductHP();
             if (playerTwo.hitpoints == 0){
                 p1Victory = true;
-                playerOneSprite.innerHTML = `<img src="victoryLeft.png">`;
                 playerTwoSprite.innerHTML = `<img src="defeated.png">`;
                 dialogueHeadline.innerHTML = `You snap your fingers and completely overwhelm your opponent's ${p2attack} with the coolest EXPLOSION imaginable.`;
                 dialogueFlavourText.innerHTML = "YOU WIN! Refresh the page for another round.";
@@ -418,7 +416,7 @@ homerun.addEventListener("click", () => {
                 p2Victory = true;
                 playerOneSprite.innerHTML = `<img src="defeatedLeft.png">`;
                 playerTwoSprite.innerHTML = `<img src="victory.png">`;
-                dialogueHeadline.innerHTML = `You make a HOMERUN that'd awe any baseball team... but it isn't enough to beat an ${p2attack}.`;
+                dialogueHeadline.innerHTML = `You make a HOMERUN that'd awe any baseball team... but it isn't enough to beat your opponent's ${p2attack}.`;
                 dialogueFlavourText.innerHTML = "Better luck next time! Refresh the page to try again.";
             } else{
                 dialogueHeadline.innerHTML = `You ready your bat and swing the ultimate, all-out HOMERUN... which unfortunately still can't deflect ${p2attack}s.`;
@@ -431,7 +429,6 @@ homerun.addEventListener("click", () => {
             playerTwo.deductHP();
             if (playerTwo.hitpoints == 0){
                 p1Victory = true;
-                playerOneSprite.innerHTML = `<img src="victoryLeft.png">`;
                 playerTwoSprite.innerHTML = `<img src="defeated.png">`;
                 dialogueHeadline.innerHTML = `You make a HOMERUN so powerful that it instantly crushes your opponent's ${p2attack}!`;
                 dialogueFlavourText.innerHTML = "YOU WIN! Refresh the page for another round.";

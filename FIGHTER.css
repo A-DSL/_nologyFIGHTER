@@ -131,11 +131,20 @@ body {
     padding: 0 10vw;
   }
 
+  .players > .player > .statistics > p > img {
+    margin: 10px;
+  }
   .players > .player .playerone__energy {
     font-size: 16px;
+    margin: 10px 0 10px 40px;
   }
   .players > .player .playertwo__energy {
     font-size: 16px;
+    margin: 10px 0 10px 40px;
+  }
+  .players > .player .buttons button {
+    margin: 10px 20px;
+    padding: 2px 0 2px 0;
   }
   .players > .player > .images {
     margin: 5vh 0 2vh 0;
