@@ -207,56 +207,109 @@ const playerTwoAttackChoice = (fighter) => {
 //Event listeners to use P1's attacks and advance game state
 beam.addEventListener("click", () => {
     if (p1Victory == false && p2Victory == false){
-        //determine p2's attack + sprite through RNG functions
+        //Player 2's attack
         let p2attack = playerTwoAttacks(playerTwoAttackChoice(playerTwo));
         //(play sound effect, optional)
-        //change p1 sprite
+        //P1's attack
         playerOneSprite.innerHTML = `<img src="beamLeft.png">`;
-        //increaseEnergy()/useSuper() for each side to monitor Energy and toggle super availability. also adds classes if energy reaches certain amount.
+        //increaseEnergy()/useSuper()
         playerOne.increaseEnergy();
-        //change dialogue and use deductHP() based on outcome, + change victory code to true and change sprites if one side loses all hp  
+        //change dialogue and use deductHP() based on outcome, + change victory code to true and change sprites if one side loses all hp
+        if (p2attack == "Baseball Bat" || p2attack == "Homerun" || 
+        p2attack == "Hyper Beam"){
+            playerOne.deductHP();
+        } else if (p2attack == "Beam"){
+
+        } else{
+            playerTwo.deductHP();
+        }
     }
 })
 blast.addEventListener("click", () => {
     if (p1Victory == false && p2Victory == false){
         let p2attack = playerTwoAttacks(playerTwoAttackChoice(playerTwo));
+
         playerOneSprite.innerHTML = `<img src="blastLeft.png">`;
-        //increaseEnergy()/useSuper() for each side to monitor Energy and toggle super availability. also adds classes if energy reaches certain amount.
-        playerOne.increaseEnergy();            
+        playerOne.increaseEnergy();  
+        
+        if (p2attack == "Baseball Bat" || p2attack == "Homerun" || 
+        p2attack == "Hyper Beam"){
+            playerOne.deductHP();
+        } else if (p2attack == "Beam"){
+
+        } else{
+            playerTwo.deductHP();
+        }
     }    
 })
 baseball.addEventListener("click", () => {
     if (p1Victory == false && p2Victory == false){
         let p2attack = playerTwoAttacks(playerTwoAttackChoice(playerTwo));
+
         playerOneSprite.innerHTML = `<img src="baseballbatLeft.png">`; 
-        //increaseEnergy()/useSuper() for each side to monitor Energy and toggle super availability. also adds classes if energy reaches certain amount.
         playerOne.increaseEnergy();           
+
+        if (p2attack == "Baseball Bat" || p2attack == "Homerun" || 
+        p2attack == "Hyper Beam"){
+            playerOne.deductHP();
+        } else if (p2attack == "Beam"){
+
+        } else{
+            playerTwo.deductHP();
+        }
     }    
 })
 hyperbeam.addEventListener("click", () => {
     if (p1Victory == false && p2Victory == false
     && playerOne.canHyperBeam == true){
         let p2attack = playerTwoAttacks(playerTwoAttackChoice(playerTwo));
+
         playerOneSprite.innerHTML = `<img src="hyperbeamLeft.png">`;    
-        //increaseEnergy()/useSuper() for each side to monitor Energy and toggle super availability. also adds classes if energy reaches certain amount.
         playerOne.useHyperBeam();  
+
+        if (p2attack == "Baseball Bat" || p2attack == "Homerun" || 
+        p2attack == "Hyper Beam"){
+            playerOne.deductHP();
+        } else if (p2attack == "Beam"){
+
+        } else{
+            playerTwo.deductHP();
+        }
     }
 })
 explosion.addEventListener("click", () => {
     if (p1Victory == false && p2Victory == false
     && playerOne.canExplode == true){
         let p2attack = playerTwoAttacks(playerTwoAttackChoice(playerTwo));
+
         playerOneSprite.innerHTML = `<img src="explosionLeft.png">`;   
-        //increaseEnergy()/useSuper() for each side to monitor Energy and toggle super availability. also adds classes if energy reaches certain amount.
-        playerOne.useExplosion();       
+        playerOne.useExplosion();
+        
+        if (p2attack == "Baseball Bat" || p2attack == "Homerun" || 
+        p2attack == "Hyper Beam"){
+            playerOne.deductHP();
+        } else if (p2attack == "Beam"){
+
+        } else{
+            playerTwo.deductHP();
+        }
     }  
 })
 homerun.addEventListener("click", () => {
     if (p1Victory == false && p2Victory == false
     && playerOne.canHomerun == true){
         let p2attack = playerTwoAttacks(playerTwoAttackChoice(playerTwo));
+
         playerOneSprite.innerHTML = `<img src="homerunLeft.png">`;   
-        //increaseEnergy()/useSuper() for each side to monitor Energy and toggle super availability. also adds classes if energy reaches certain amount.
-        playerOne.useHomerun();       
+        playerOne.useHomerun();
+        
+        if (p2attack == "Baseball Bat" || p2attack == "Homerun" || 
+        p2attack == "Hyper Beam"){
+            playerOne.deductHP();
+        } else if (p2attack == "Beam"){
+
+        } else{
+            playerTwo.deductHP();
+        }
     }  
 })
