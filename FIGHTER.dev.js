@@ -192,28 +192,78 @@ var playerOne = new Fighter("playerone", playerOneHPBar);
 var playerTwo = new Fighter("playertwo", playerTwoHPBar); //test to check if function works
 //playerOne.deductHP();
 //console.log(playerOne);
-//Functions that randomly determine P2's attack. playerTwo will always be passed as the parameter.
+//Variables that make a couple of the AI's attacks set... a pattern to exploit! It'll always use beam first, and always use explosion the first time it gets 40 energy.
+
+var beamfirst = 0;
+var explosionatfirstforty = 0; //Functions that randomly determine P2's attack. playerTwo will always be passed as the parameter.
 
 var playerTwoAttacks = function playerTwoAttacks(result) {
   if (result == 0) {
-    playerTwoSprite.innerHTML = "<img src=\"beam.png\">";
-    playerTwo.increaseEnergy();
-    return "Beam";
+    if (explosionatfirstforty == 0 && playerTwo.energy == 40) {
+      playerTwoSprite.innerHTML = "<img src=\"explosion.png\">";
+      playerTwo.useExplosion();
+      explosionatfirstforty = 1;
+      return "Explosion";
+    } else {
+      if (beamfirst == 0) {
+        beamfirst = 1;
+      }
+
+      playerTwoSprite.innerHTML = "<img src=\"beam.png\">";
+      playerTwo.increaseEnergy();
+      return "Beam";
+    }
   } else if (result == 1) {
-    playerTwoSprite.innerHTML = "<img src=\"blast.png\">";
-    playerTwo.increaseEnergy();
-    return "Blast";
+    if (explosionatfirstforty == 0 && playerTwo.energy == 40) {
+      playerTwoSprite.innerHTML = "<img src=\"explosion.png\">";
+      playerTwo.useExplosion();
+      explosionatfirstforty = 1;
+      return "Explosion";
+    } else {
+      if (beamfirst == 0) {
+        beamfirst = 1;
+        playerTwoSprite.innerHTML = "<img src=\"beam.png\">";
+        playerTwo.increaseEnergy();
+        return "Beam";
+      } else {
+        playerTwoSprite.innerHTML = "<img src=\"blast.png\">";
+        playerTwo.increaseEnergy();
+        return "Blast";
+      }
+    }
   } else if (result == 2) {
-    playerTwoSprite.innerHTML = "<img src=\"baseballbat.png\">";
-    playerTwo.increaseEnergy();
-    return "Baseball Bat";
+    if (explosionatfirstforty == 0 && playerTwo.energy == 40) {
+      playerTwoSprite.innerHTML = "<img src=\"explosion.png\">";
+      playerTwo.useExplosion();
+      explosionatfirstforty = 1;
+      return "Explosion";
+    } else {
+      if (beamfirst == 0) {
+        beamfirst = 1;
+        playerTwoSprite.innerHTML = "<img src=\"beam.png\">";
+        playerTwo.increaseEnergy();
+        return "Beam";
+      } else {
+        playerTwoSprite.innerHTML = "<img src=\"baseballbat.png\">";
+        playerTwo.increaseEnergy();
+        return "Baseball Bat";
+      }
+    }
   } else if (result == 3) {
-    playerTwoSprite.innerHTML = "<img src=\"hyperbeam.png\">";
-    playerTwo.useHyperBeam();
-    return "Hyper Beam";
+    if (explosionatfirstforty == 0 && playerTwo.energy == 40) {
+      playerTwoSprite.innerHTML = "<img src=\"explosion.png\">";
+      playerTwo.useExplosion();
+      explosionatfirstforty = 1;
+      return "Explosion";
+    } else {
+      playerTwoSprite.innerHTML = "<img src=\"hyperbeam.png\">";
+      playerTwo.useHyperBeam();
+      return "Hyper Beam";
+    }
   } else if (result == 4) {
     playerTwoSprite.innerHTML = "<img src=\"explosion.png\">";
     playerTwo.useExplosion();
+    explosionatfirstforty = 1;
     return "Explosion";
   } else if (result == 5) {
     playerTwoSprite.innerHTML = "<img src=\"homerun.png\">";
