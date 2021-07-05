@@ -249,7 +249,9 @@ beam.addEventListener("click", function () {
   if (p1Victory == false && p2Victory == false) {
     //Player 2's attack
     var p2attack = playerTwoAttacks(playerTwoAttackChoice(playerTwo)); //(play sound effect, optional)
-    //P1's attack
+
+    var audio = new Audio('pewpew.wav');
+    audio.play(); //P1's attack
 
     playerOneSprite.innerHTML = "<img src=\"beamLeft.png\">"; //increaseEnergy()/useSuper()
 
@@ -290,6 +292,8 @@ beam.addEventListener("click", function () {
 blast.addEventListener("click", function () {
   if (p1Victory == false && p2Victory == false) {
     var p2attack = playerTwoAttacks(playerTwoAttackChoice(playerTwo));
+    var audio = new Audio('rockgoesouch.wav');
+    audio.play();
     playerOneSprite.innerHTML = "<img src=\"blastLeft.png\">";
     playerOne.increaseEnergy();
 
@@ -328,6 +332,8 @@ blast.addEventListener("click", function () {
 baseball.addEventListener("click", function () {
   if (p1Victory == false && p2Victory == false) {
     var p2attack = playerTwoAttacks(playerTwoAttackChoice(playerTwo));
+    var audio = new Audio('rockgoesouch.wav');
+    audio.play();
     playerOneSprite.innerHTML = "<img src=\"baseballbatLeft.png\">";
     playerOne.increaseEnergy();
 
@@ -366,6 +372,8 @@ baseball.addEventListener("click", function () {
 hyperbeam.addEventListener("click", function () {
   if (p1Victory == false && p2Victory == false && playerOne.canHyperBeam == true) {
     var p2attack = playerTwoAttacks(playerTwoAttackChoice(playerTwo));
+    var audio = new Audio('death.wav');
+    audio.play();
     playerOneSprite.innerHTML = "<img src=\"hyperbeamLeft.png\">";
     playerOne.useHyperBeam();
 
@@ -403,6 +411,8 @@ hyperbeam.addEventListener("click", function () {
 explosion.addEventListener("click", function () {
   if (p1Victory == false && p2Victory == false && playerOne.canExplode == true) {
     var p2attack = playerTwoAttacks(playerTwoAttackChoice(playerTwo));
+    var audio = new Audio('death.wav');
+    audio.play();
     playerOneSprite.innerHTML = "<img src=\"explosionLeft.png\">";
     playerOne.useExplosion();
 
@@ -440,6 +450,8 @@ explosion.addEventListener("click", function () {
 homerun.addEventListener("click", function () {
   if (p1Victory == false && p2Victory == false && playerOne.canHomerun == true) {
     var p2attack = playerTwoAttacks(playerTwoAttackChoice(playerTwo));
+    var audio = new Audio('death.wav');
+    audio.play();
     playerOneSprite.innerHTML = "<img src=\"homerunLeft.png\">";
     playerOne.useHomerun();
 
